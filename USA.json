@@ -1,0 +1,548 @@
+﻿{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "00",
+      "properties": { "name": "Tile00" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 20.0, -16.37 ],
+            [ 20.0, -26.37 ],
+            [ 30.0, -26.37 ],
+            [ 30.0, -16.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "01",
+      "properties": { "name": "Tile01" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 50.0, 13.63 ],
+            [ 60.0, 13.63 ],
+            [ 60.0, 3.63 ],
+            [ 50.0, 3.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "02",
+      "properties": { "name": "Tile02" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 10.0, -16.37 ],
+            [ 20.0, -16.37 ],
+            [ 20.0, -26.37 ],
+            [ 10.0, -26.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "03",
+      "properties": { "name": "Tile03" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 50.0, -16.37 ],
+            [ 60.0, -16.37 ],
+            [ 60.0, -26.37 ],
+            [ 50.0, -26.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "04",
+      "properties": { "name": "Tile04" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 60.0, -16.37 ],
+            [ 70.0, -16.37 ],
+            [ 70.0, -26.37 ],
+            [ 60.0, -26.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "05",
+      "properties": { "name": "Tile05" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 30.0, -16.37 ],
+            [ 40.0, -16.37 ],
+            [ 40.0, -26.37 ],
+            [ 30.0, -26.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "06",
+      "properties": { "name": "Tile06" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 40.0, -16.37 ],
+            [ 50.0, -16.37 ],
+            [ 50.0, -26.37 ],
+            [ 40.0, -26.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "07",
+      "properties": { "name": "Tile07" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ -20.0, 13.63 ],
+            [ -10.0, 13.63 ],
+            [ -10.0, 3.63 ],
+            [ -20.0, 3.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "08",
+      "properties": { "name": "Tile08" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 0.0, 13.63 ],
+            [ 10.0, 13.63 ],
+            [ 10.0, 3.63 ],
+            [ 0.0, 3.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "09",
+      "properties": { "name": "Tile09" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ -10.0, 13.63 ],
+            [ 0.0, 13.63 ],
+            [ 0.0, 3.63 ],
+            [ -10.0, 3.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "10",
+      "properties": { "name": "Tile10" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 30.0, 13.63 ],
+            [ 40.0, 13.63 ],
+            [ 40.0, 3.63 ],
+            [ 30.0, 3.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "11",
+      "properties": { "name": "Tile11" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 40.0, 13.63 ],
+            [ 50.0, 13.63 ],
+            [ 50.0, 3.63 ],
+            [ 40.0, 3.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "12",
+      "properties": { "name": "Tile12" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 10.0, -6.37 ],
+            [ 20.0, -6.37 ],
+            [ 20.0, -16.37 ],
+            [ 10.0, -16.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "13",
+      "properties": { "name": "Tile13" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 10.0, 13.63 ],
+            [ 20.0, 13.63 ],
+            [ 20.0, 3.63 ],
+            [ 10.0, 3.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "14",
+      "properties": { "name": "Tile14" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 20.0, -6.37 ],
+            [ 30.0, -6.37 ],
+            [ 30.0, -16.37 ],
+            [ 20.0, -16.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "15",
+      "properties": { "name": "Tile15" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 20.0, 13.63 ],
+            [ 30.0, 13.63 ],
+            [ 30.0, 3.63 ],
+            [ 20.0, 3.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "16",
+      "properties": { "name": "Tile16" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ -10.0, 23.63 ],
+            [ 0.0, 23.63 ],
+            [ 0.0, 13.63 ],
+            [ -10.0, 13.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "17",
+      "properties": { "name": "Tile17" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 50.0, -6.37 ],
+            [ 60.0, -6.37 ],
+            [ 60.0, -16.37 ],
+            [ 50.0, -16.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "18",
+      "properties": { "name": "Tile18" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 0.0, 23.63 ],
+            [ 10.0, 23.63 ],
+            [ 10.0, 13.63 ],
+            [ 0.0, 13.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "19",
+      "properties": { "name": "Tile19" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ -30.0, 23.63 ],
+            [ -20.0, 23.63 ],
+            [ -20.0, 13.63 ],
+            [ -30.0, 13.63 ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "20",
+      "properties": { "name": "Tile20" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 30.0, -6.37 ],
+            [ 40.0, -6.37 ],
+            [ 40.0, -16.37 ],
+            [ 30.0, -16.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "21",
+      "properties": { "name": "Tile21" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ -20.0, 23.63 ],
+            [ -10.0, 23.63 ],
+            [ -10.0, 13.63 ],
+            [ -20.0, 13.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "22",
+      "properties": { "name": "Tile22" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 40.0, -6.37 ],
+            [ 50.0, -6.37 ],
+            [ 50.0, -16.37 ],
+            [ 40.0, -16.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "23",
+      "properties": { "name": "Tile23" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 30.0, 23.63 ],
+            [ 40.0, 23.63 ],
+            [ 40.0, 13.63 ],
+            [ 30.0, 13.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "24",
+      "properties": { "name": "Tile24" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 10.0, 3.63 ],
+            [ 20.0, 3.63 ],
+            [ 20.0, -6.37 ],
+            [ 10.0, -6.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "25",
+      "properties": { "name": "Tile25" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 10.0, 23.63 ],
+            [ 20.0, 23.63 ],
+            [ 20.0, 13.63 ],
+            [ 10.0, 13.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "26",
+      "properties": { "name": "Tile26" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 20.0, 3.63 ],
+            [ 30.0, 3.63 ],
+            [ 30.0, -6.37 ],
+            [ 20.0, -6.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "27",
+      "properties": { "name": "Tile27" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 20.0, 23.63 ],
+            [ 30.0, 23.63 ],
+            [ 30.0, 13.63 ],
+            [ 20.0, 13.63 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "28",
+      "properties": { "name": "Tile28" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 0.0, 3.63 ],
+            [ 10.0, 3.63 ],
+            [ 10.0, -6.37 ],
+            [ 0.0, -6.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "29",
+      "properties": { "name": "Tile29" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 30.0, 3.63 ],
+            [ 40.0, 3.63 ],
+            [ 40.0, -6.37 ],
+            [ 30.0, -6.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "30",
+      "properties": { "name": "Tile30" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 40.0, 3.63 ],
+            [ 50.0, 3.63 ],
+            [ 50.0, -6.37 ],
+            [ 40.0, -6.37 ]
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "31",
+      "properties": { "name": "Tile31" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 50.0, 3.63 ],
+            [ 60.0, 3.63 ],
+            [ 60.0, -6.37 ],
+            [ 50.0, -6.37 ]
+          ]
+        ]
+      }
+    }
+
+  ]
+      }

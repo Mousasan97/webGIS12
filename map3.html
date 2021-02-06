@@ -1,0 +1,265 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Group 12</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="subpage">
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo">Labtory</a>
+            <nav id="nav">
+                <a href="index.html">Home</a>
+                <a href="generic.html">Generic</a>
+                <a href="elements.html">Elements</a>
+                <a href="echartsData.html">echartsDataPage</a>
+                <a href="map3.html"  class="active">Group 12</a>
+                <a href="map_for_query_sampled_info.html">Sampled Info</a>
+
+            </nav>
+        </div>
+    </header>
+
+    <div id="map" class="map"></div>
+    <div id="popup">&nbsp;</div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <div class="flex">
+                <div class="copyright">
+                    &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+                </div>
+                <ul class="icons">
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-linkedin"><span class="label">linkedIn</span></a></li>
+                    <li><a href="#" class="icon fa-pinterest-p"><span class="label">Pinterest</span></a></li>
+                    <li><a href="#" class="icon fa-vimeo"><span class="label">Vimeo</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script src="js/jquery.min.js"></script>
+<script src="v6.5.0/build/ol.js"></script>
+<script src="ol-layerswitcher-master/ol-layerswitcher.js"></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+<link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="v6.5.0/css/ol.css" rel="stylesheet" />
+<link href="ol-layerswitcher-master/ol-layerswitcher.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    var style = new ol.style.Style({
+        fill: new ol.style.Fill({
+            color: 'rgba(255, 255, 255, 0.6)',
+        }),
+        stroke: new ol.style.Stroke({
+            color: '#319FD3',
+            width: 1,
+        }),
+        text: new ol.style.Text({
+            font: '12px Calibri,sans-serif',
+            fill: new ol.style.Fill({
+                color: '#000',
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#fff',
+                width: 3,
+            }),
+        }),
+    });
+
+
+    var osm = new ol.layer.Tile({
+        title: 'OpenStreetMap', //Define the layer display name
+        type: 'base', //Define layer type: basemap
+        visible: true, //Show this layer after loading
+        source: new ol.source.OSM()//Layer source: osm
+    });
+
+    /***URL of request data**/
+    //vectorSource
+    var vectorSource = new ol.source.Vector({
+        loader: function (extent, resolution, projection) {
+            //request the data from url
+            var url = 'http://localhost:8082/geoserver/LabMapsGroup12/ows?service=WFS&'
+                + 'version=2.0.0&request=GetFeature&typeName=LabMapsGroup12:step0_GIS_lab_areas&'
+                + 'outputFormat=text/javascript&srsname=EPSG:3857&'
+                + 'format_options=callback:loadFeatures';
+            $.ajax({ url: url, dataType: 'jsonp' }); //date type
+        }
+    });
+    //set data type:json
+    var geojsonFormat = new ol.format.GeoJSON();
+    //load features
+    function loadFeatures(response) {
+        vectorSource.addFeatures(geojsonFormat.readFeatures(response));
+    }
+    //set layer:group 12 from openlayers
+    var group12 = new ol.layer.Vector({
+        title: 'group 12',
+        source: vectorSource,
+        style: new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgba(255, 255, 255, 0.6)',
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#319FD3',
+                width: 1,
+            }),
+            text: new ol.style.Text({
+                font: '12px Calibri,sans-serif',
+                fill: new ol.style.Fill({
+                    color: '#000',
+                }),
+                stroke: new ol.style.Stroke({
+                    color: '#fff',
+                    width: 3,
+                }),
+            }),
+        })
+    });
+
+
+
+    var vectorLayer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            url: 'USA.json',
+            format: new ol.format.GeoJSON(),
+        }),
+        style: function (feature) {
+            style.getText().setText(feature.get('name'));
+            return style;
+        },
+    });
+
+
+    /**
+     *the map container
+     **/
+    var map = new ol.Map({//Create a new openlayer type map container
+        target: 'map', //The target of the map container storage is the label with id map
+        layers: [ //Map contains layers
+            new ol.layer.Group({//Create a new map group,
+                title: 'Base Maps', //Map group display name
+                layers: [osm, vectorLayer] //The layers included in the map group
+
+            }),
+            new ol.layer.Group({
+                title: 'Road Layers',
+                layers: [group12]
+            })
+        ],
+        view: new ol.View({
+            center: [15, 0],//Specifies the center position of the map
+            zoom: 4//Specifies the zoom level of the map
+        })
+    });
+
+
+    /**
+    *set the pop-up window. the Overlay class is used to implement pop-up effect
+    * */
+    //get the lable that id is popup
+    var elementPopup = document.getElementById('popup');
+
+    //put the lab we got into the overlay object
+    var popup = new ol.Overlay({
+        element: elementPopup
+    });
+
+    //add the popup window into the map container
+    map.addOverlay(popup);
+
+    var highlightStyle = new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: '#f00',
+            width: 1,
+        }),
+        fill: new ol.style.Fill({
+            color: 'rgba(255,0,0,0.1)',
+        }),
+        text: new ol.style.Text({
+            font: '12px Calibri,sans-serif',
+            fill: new ol.style.Fill({
+                color: '#000',
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#f00',
+                width: 3,
+            }),
+        }),
+    });
+    var featureOverlay = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        map: map,
+        style: function (feature) {
+            highlightStyle.getText().setText(feature.get(''));
+            return highlightStyle;
+        },
+    });
+    var highlight;
+
+    //Bind the click event to the Map, so that when we click the corresponding location on the map, the pop-up box will be triggered
+    map.on('click', function (event) {
+
+        //Get the feature at the mouse click
+        var feature = map.forEachFeatureAtPixel(event.pixel, function (feature, layer) {
+            return feature;
+        });
+        //Determine whether the feature is returned in the previous step
+        if (feature != null) {
+            if (feature !== highlight) {
+                if (highlight) {
+                    featureOverlay.getSource().removeFeature(highlight);
+                }
+                if (feature) {
+                    featureOverlay.getSource().addFeature(feature);
+                }
+                highlight = feature;
+            };
+
+            //Currently clicked position
+            var pixel = event.pixel;
+
+            //the coordinates of clicked position
+            var coord = map.getCoordinateFromPixel(pixel);
+            //The popup window is displayed at this position
+            popup.setPosition(coord);
+
+            //set the content of pop-up window
+            $(elementPopup).attr('title', 'Population'); //add the title of the pop-up window
+            $(elementPopup).attr('data-content',
+                '<b>TitleId: </b>' + feature.get('TitleId')
+                + '</br> <b>COV: </b>' + feature.get('Correlatio')
+            ); //Add pop-up window content: the attributes of the current feature
+            $(elementPopup).popover({ 'placement': 'top', 'html': true }); //
+            $(elementPopup).popover('show'); //display window            
+        }
+    });
+
+    //After the mouse is moved, the popup window destroys
+    map.on('pointermove', function (event) {
+        if (event.dragging) {
+            $(elementPopup).popover('destroy');
+            return;
+        }
+        var pixel = map.getEventPixel(event.originalEvent);
+        var hit = map.hasFeatureAtPixel(pixel);
+        //map.getTarget().style.cursor = hit ? 'pointer' : '';
+    });
+
+/*finish*/
+
+
+
+</script>

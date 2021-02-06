@@ -1,0 +1,165 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Generic - Theory by TEMPLATED</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="subpage">
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo">Labtory</a>
+            <nav id="nav">
+                <a href="index.html">Home</a>
+                <a href="generic.html">Generic</a>
+                <a href="elements.html">Elements</a>
+                <a href="echartsData.html">echartsDataPage</a>
+                <a href="#" class="active">change the name</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="map" class="map"></div>
+    <div id="info">&nbsp;</div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <div class="flex">
+                <div class="copyright">
+                    &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+                </div>
+                <ul class="icons">
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-linkedin"><span class="label">linkedIn</span></a></li>
+                    <li><a href="#" class="icon fa-pinterest-p"><span class="label">Pinterest</span></a></li>
+                    <li><a href="#" class="icon fa-vimeo"><span class="label">Vimeo</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script src="js/jquery.min.js"></script>
+<script src="v6.5.0/build/ol.js"></script>
+<link href="v6.5.0/css/ol.css" rel="stylesheet" />
+
+<script type="text/javascript">  
+
+    var style = new ol.style.Style({
+        fill: new ol.style.Fill({
+            color: 'rgba(255, 255, 255, 0.6)',
+        }),
+        stroke: new ol.style.Stroke({
+            color: '#319FD3',
+            width: 1,
+        }),
+        text: new ol.style.Text({
+            font: '12px Calibri,sans-serif',
+            fill: new ol.style.Fill({
+                color: '#000',
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#fff',
+                width: 3,
+            }),
+        }),
+    });
+
+    var osm = new ol.layer.Tile({
+        title: 'OSM Map',
+        visible: true,
+        source: new ol.source.OSM()
+    });
+
+    var vectorLayer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            url: 'USA.json',
+            format: new ol.format.GeoJSON(),
+        }),
+        style: function (feature) {
+            style.getText().setText(feature.get('name'));
+            return style;
+        },
+    });
+
+    var map = new ol.Map({
+        layers: [osm, vectorLayer],
+        target: 'map',
+        view: new ol.View({
+            center: [0, 0],
+            zoom: 1,
+        }),
+    });
+
+    var highlightStyle = new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: '#f00',
+            width: 1,
+        }),
+        fill: new ol.style.Fill({
+            color: 'rgba(255,0,0,0.1)',
+        }),
+        text: new ol.style.Text({
+            font: '12px Calibri,sans-serif',
+            fill: new ol.style.Fill({
+                color: '#000',
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#f00',
+                width: 3,
+            }),
+        }),
+    });
+
+    var featureOverlay = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        map: map,
+        style: function (feature) {
+            highlightStyle.getText().setText(feature.get('name'));
+            return highlightStyle;
+        },
+    });
+
+    var highlight;
+    var displayFeatureInfo = function (pixel) {
+        var feature = map.forEachFeatureAtPixel(pixel, function (feature) {
+            return feature;
+        });
+
+        var info = document.getElementById('info');
+        if (feature) {
+            info.innerHTML = feature.getId() + ': ' + feature.get('name');            
+        } else {
+            info.innerHTML = '&nbsp;';
+        }
+
+        if (feature !== highlight) {
+            if (highlight) {
+                featureOverlay.getSource().removeFeature(highlight);
+            }
+            if (feature) {
+                featureOverlay.getSource().addFeature(feature);
+            }
+            highlight = feature;
+        }
+    };
+
+    map.on('pointermove', function (evt) {
+        if (evt.dragging) {
+            return;
+        }
+        var pixel = map.getEventPixel(evt.originalEvent);
+        displayFeatureInfo(pixel);
+    });
+
+    map.on('click', function (evt) {
+        displayFeatureInfo(evt.pixel);
+    });
+
+</script>

@@ -1,0 +1,230 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Generic - Theory by TEMPLATED</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="subpage">
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo">Labtory</a>
+            <nav id="nav">
+                <a href="index.html">Home</a>
+                <a href="generic.html">Generic</a>
+                <a href="elements.html">Elements</a>
+                <a href="echartsData.html">echartsDataPage</a>
+                <a href="#" class="active">change the name</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="map" class="map"></div>
+    <div id="popup">&nbsp;</div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <div class="flex">
+                <div class="copyright">
+                    &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+                </div>
+                <ul class="icons">
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-linkedin"><span class="label">linkedIn</span></a></li>
+                    <li><a href="#" class="icon fa-pinterest-p"><span class="label">Pinterest</span></a></li>
+                    <li><a href="#" class="icon fa-vimeo"><span class="label">Vimeo</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script src="js/jquery.min.js"></script>
+<script src="v6.5.0/build/ol.js"></script>
+<script src="ol-layerswitcher-master/ol-layerswitcher.js"></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+<link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="v6.5.0/css/ol.css" rel="stylesheet" />
+<link href="ol-layerswitcher-master/ol-layerswitcher.css" rel="stylesheet" />
+
+<script type="text/javascript">
+
+
+    var osm = new ol.layer.Tile({
+        title: 'OpenStreetMap', //定义图层显示名称
+        type: 'base', //定义图层类型：底图
+        visible: true, //加载后显示该图层
+        source: new ol.source.OSM()//图层来源：osm
+    });
+
+    /***URL of request data**/
+    //vectorSource
+    var vectorSource = new ol.source.Vector({
+        loader: function (extent, resolution, projection) {
+            //request the data from url
+            var url = 'http://localhost:8082/geoserver/LabMapsGroup12/ows?service=WFS&'
+                + 'version=2.0.0&request=GetFeature&typeName=LabMapsGroup12:step0_GIS_lab_areas&'
+                + 'outputFormat=text/javascript&srsname=EPSG:3857&'
+                + 'format_options=callback:loadFeatures';
+            $.ajax({ url: url, dataType: 'jsonp' }); //数据格式
+        }
+    });
+    //set data type:json
+    var geojsonFormat = new ol.format.GeoJSON();
+    //load features
+    function loadFeatures(response) {
+        vectorSource.addFeatures(geojsonFormat.readFeatures(response));
+    }
+    //set layer:plosRoad2
+    var group12 = new ol.layer.Vector({
+        title: 'group 12', //定义图层显示名称
+        source: vectorSource,
+        style: new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgba(255, 255, 255, 0.6)',
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#319FD3',
+                width: 1,
+            }),
+            text: new ol.style.Text({
+                font: '12px Calibri,sans-serif',
+                fill: new ol.style.Fill({
+                    color: '#000',
+                }),
+                stroke: new ol.style.Stroke({
+                    color: '#fff',
+                    width: 3,
+                }),
+            }),
+        })
+    });
+
+    /**
+     *地图容器map
+     **/
+    var map = new ol.Map({//新建一个openlayer类型的地图容器
+        target: 'map', //地图容器存放的目标是id为map的标签
+        layers: [ //地图含有的图层
+            new ol.layer.Group({//新建一个地图group，
+                title: 'Base Maps', //地图group显示名称
+                layers: [osm] //地图group中包含的图层
+
+            }),
+            new ol.layer.Group({
+                title: 'Road Layers',
+                layers: [group12]
+            })
+        ],
+        view: new ol.View({
+            center: [15, 0],//规定地图中心位置
+            zoom: 4//规定地图缩放级别
+        })
+    });
+
+
+    /**
+    *弹出窗口设置。Overlay类，用于实现弹出效果
+    */
+    //取到id为popup的标签
+    var elementPopup = document.getElementById('popup');
+
+    //将获得的标签传入overlay对象
+    var popup = new ol.Overlay({
+        element: elementPopup
+    });
+
+    //将popup窗口添加到地图容器map中
+    map.addOverlay(popup);
+
+    var highlightStyle = new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: '#f00',
+            width: 1,
+        }),
+        fill: new ol.style.Fill({
+            color: 'rgba(255,0,0,0.1)',
+        }),
+        text: new ol.style.Text({
+            font: '12px Calibri,sans-serif',
+            fill: new ol.style.Fill({
+                color: '#000',
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#f00',
+                width: 3,
+            }),
+        }),
+    });
+    var featureOverlay = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        map: map,
+        style: function (feature) {
+            highlightStyle.getText().setText(feature.get(''));
+            return highlightStyle;
+        },
+    });
+    var highlight;
+
+    //为Map绑定点击事件，这样，当我们点击地图上的相应位置时，才会触发弹出框
+    map.on('click', function (event) {
+
+        //获取鼠标点击处的feature
+        var feature = map.forEachFeatureAtPixel(event.pixel, function (feature, layer) {
+            return feature;
+        });
+        //判断上一步是否return了feature
+        if (feature != null) {
+            if (feature !== highlight) {
+                if (highlight) {
+                    featureOverlay.getSource().removeFeature(highlight);
+                }
+                if (feature) {
+                    featureOverlay.getSource().addFeature(feature);
+                }
+                highlight = feature;
+            };
+
+            //当前点击的位置
+            var pixel = event.pixel;
+
+            //点击位置处的坐标
+            var coord = map.getCoordinateFromPixel(pixel);
+            //popup窗口在该位置显示
+            popup.setPosition(coord);
+
+            //设置弹出框内容
+            $(elementPopup).attr('title', 'Population'); //添加弹出窗口title
+            $(elementPopup).attr('data-content',
+                '<b>TitleId: </b>' + feature.get('TitleId')
+                + '</br> <b>COV: </b>' + feature.get('Correlatio')
+            ); //添加弹出窗口内容：当前feature的属性
+            $(elementPopup).popover({ 'placement': 'top', 'html': true }); //
+            $(elementPopup).popover('show'); //显示窗口            
+        }
+    });
+
+    //鼠标移动后，popup窗口destroy
+    map.on('pointermove', function (event) {
+        if (event.dragging) {
+            $(elementPopup).popover('destroy');
+            return;
+        }
+        var pixel = map.getEventPixel(event.originalEvent);
+        var hit = map.hasFeatureAtPixel(pixel);
+        //map.getTarget().style.cursor = hit ? 'pointer' : '';
+    });
+
+/*结束*/
+
+
+
+</script>

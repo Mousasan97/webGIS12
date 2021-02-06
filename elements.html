@@ -1,0 +1,235 @@
+﻿<!DOCTYPE HTML>
+<!--
+    Theory by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+    <title>Process</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style type="text/css">
+        .lable_position {
+        position:absolute;
+        right:150px;
+        }
+    </style>
+</head>
+<body class="subpage">
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo">Labtory</a>
+            <nav id="nav">
+                <a href="index.html">Home</a>
+                <a href="generic.html">Generic</a>
+                <a href="elements.html">Elements</a>
+                <a href="echartsData.html" class="active">Group 12:echarts</a>
+                <a href="map3.html">Group 12</a>
+                <a href="map_for_query_sampled_info.html">Sampled Info</a>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main -->
+
+
+    <div class="inner">
+        <header class="align-left">
+            <h2>Processes</h2>
+        </header>
+        <header class="align-left">
+            <h2>Step1: Preprocessing</h2>
+        </header>
+        <p>
+            We downloaded the appropriate data for our project making sure that the two maps are compatible and applicable to intercomparison, then we clip the two maps to our area of interest (group 12 tiles).
+            Later we applied some raster calculations and geo-processing tools to obtain two integers maps removing all the no data values and applying some styling to get the two following maps:
+        </p>
+        <div class="box alt">
+            <div class="row 50% uniform">
+                <div class="6u">
+                    <span class="image fit">
+                        <img src="images/Screenshots/Sstep1_clipping.PNG" />
+                        <lable class="lable_position">Step1_clipping</lable>
+                    </span>
+                </div>
+                <div class="6u">
+                    <span class="image fit">
+
+                        <img src="images/Screenshots/step1_Raster_calc1.PNG" />
+                        <lable class="lable_position">Step1_Raster_calc1</lable>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="box alt">
+            <div class="row 50% uniform">
+                <div class="6u">
+                    <span class="image fit">
+                        <img src="images/Screenshots/step1_Raster_calc2.PNG" />
+                        <lable class="lable_position">Step1_Raster_calc2</lable>
+                    </span>
+                </div>
+                <div class="6u">
+                    <span class="image fit">
+                        <img src="images/Screenshots/step1_setNull.PNG" />
+                        <lable class="lable_position">Step1_setNull</lable>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="box alt">
+            <div class="row 50% uniform">
+                <div class="6u">
+                    <span class="image fit">
+                        <img src="images/Screenshots/step1_translation.PNG" />
+                        <lable class="lable_position">Step1_translation</lable>
+                    </span>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="inner">
+        <header class="align-left">
+            <h2>Step2:Intercomparison</h2>
+        </header>
+        <p>
+            In this step, we calculate the difference map at first to apply the basic statistics. Then, we split the 31 tiles of our work area and clip the two maps to each of them to calculate the covariance matrix between the two maps.
+        </p>
+        <div class="box alt">
+            <div class="row 50% uniform">
+                <div class="6u">
+                    <span class="image fit">
+                        <img src="images/Screenshots/step2_clipping_tiles.PNG" />
+
+                        <lable class="lable_position">step2_clipping_tiles</lable>
+                    </span>
+                </div>
+                <div class="6u">
+                    <span class="image fit">
+
+                        <img src="images/Screenshots/step2_covar.PNG" />
+                        <lable class="lable_position">step2_covar</lable>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="box alt">
+            <div class="row 50% uniform">
+                <div class="6u">
+                    <span class="image fit">
+                        <img src="images/Screenshots/step2_diff.PNG" />
+
+
+                        <lable class="lable_position">step2_diff</lable>
+                    </span>
+                </div>
+                <div class="6u">
+                    <span class="image fit">
+
+                        <img src="images/Screenshots/step2_splitted_tiles.PNG" />
+                        <lable class="lable_position">step2_splitted_tiles</lable>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="box alt">
+            <div class="row 50% uniform">
+                <div class="6u">
+                    <span class="image fit">
+                        <img src="images/Screenshots/Step2_splitting_tiles.PNG" />
+                        <lable class="lable_position">Step2_splitting_tiles</lableclass="lable_position">
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="inner">
+        <header class="align-left">
+            <h2>Step3:Preprocessing data for validation</h2>
+        </header>
+        <p>
+            In this step we used the raster calculator do to define the areas where we have built areas in both maps so can use this map later in our validation. Later, we compute the difference between these two maps to obtain a three scenarios map, showing the area where we have buildings in GHS but not Worldpop, areas where we have buildings in Worldpop but not in GHS, and areas where both maps are populated or not populated.
+        </p>
+    </div>
+
+    <div class="inner">
+        <header class="align-left">
+            <h2>Step4:Validation </h2>
+        </header>
+        <p>
+
+            This step is the main step in our work, here compared the data in the given two maps with a reference data by using different base maps. Since it’s required to create a sample of 600 points, the work load was divided into 200 sample for each student. To perform the validation process we had to install AcATaMa plugin in QGIS which refers to Accuracy Assessment of Thematic Maps.
+
+        </p>  <div class="table-wrapper">
+            <table class="table table-bordered">
+                <thead class="alt">
+                    <tr>
+                        <th>Thematic_class_worldPop/Classified</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>UA</th>
+                        <th>PA</th>
+                        <th>OA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>341</td>
+                        <td>14</td>
+                        <td>0.96</td>
+                        <td>0.65</td>
+                        <td>0.668333333</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>185</td>
+                        <td>60</td>
+                        <td>0.24</td>
+                        <td>0.81</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <div class="flex">
+                <div class="copyright">
+                    &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+                </div>
+                <ul class="icons">
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-linkedin"><span class="label">linkedIn</span></a></li>
+                    <li><a href="#" class="icon fa-pinterest-p"><span class="label">Pinterest</span></a></li>
+                    <li><a href="#" class="icon fa-vimeo"><span class="label">Vimeo</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
