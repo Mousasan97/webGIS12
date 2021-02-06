@@ -160,7 +160,7 @@ option2 = {
 myChart.setOption(option2);
 
 myChart.showLoading();
-$.get('/WebTrial/USA.json', function (usaJson) {
+$.get('/USA.json', function (usaJson) {
     myChart.hideLoading();
     echarts.registerMap('Group_12', usaJson, {
     });
