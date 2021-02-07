@@ -1,55 +1,205 @@
 <!DOCTYPE HTML>
+<!--
+    Theory by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
 <html>
 
 <head>
-    <title>Group 12-Overview</title>
+    <title>Group 12-Results</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <style type="text/css">
         .lable_position {
             position: absolute;
-            left: 200px;
+            right: 150px;
         }
 
-        .accordion {
-            background-color: #eee !important;
-            color: #444 !important;
-            cursor: pointer;
-            padding: 2px;
-            padding-left: 10px !important;
-            padding-right: 10px !important;
-            width: 100%;
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #999494;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
             border: none;
-            text-align: left;
             outline: none;
-            font-size: 15px;
-            transition: 0.4s;
+            cursor: pointer;
+            padding: 0px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: rgb(82, 76, 76);
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+        /* Style the close button */
+        .topright {
+            float: right;
+            cursor: pointer;
+            font-size: 28px;
+        }
+
+        .topright:hover {
+            color: red;
+        }
+
+
+        .mySlides {
+            display: none
+        }
+
+        .mySlides2 {
+            display: none
+        }
+
+        .mySlides3 {
+            display: none
+        }
+
+        .mySlides4 {
+            display: none
+        }
+
+        .mySlides5 {
+            display: none
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: rgb(29, 24, 24);
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Caption text */
+        .text {
+            color: #000000;
+            font-size: 25px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #000000;
+            font-size: 20px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 25px;
+            width: 25px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
         }
 
         .active,
-        .accordion:hover {
-            background-color: #ccc !important;
+        .dot:hover {
+            background-color: #717171;
         }
 
-        .accordion:after {
-            content: '\002B';
-            color: #777 !important;
-            font-weight: bold;
-            float: right;
-            margin-left: 5px;
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
         }
 
-        .active:after {
-            content: "\2212";
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
         }
 
-        .panel {
-            padding: 0 18px;
-            background-color: white;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+
+            .prev,
+            .next,
+            .text {
+                font-size: 11px
+            }
         }
     </style>
 </head>
@@ -59,7 +209,7 @@
     <!-- Header -->
     <header id="header">
         <div class="inner">
-            <a href="index.html" class="logo">labotory</a>
+            <a href="index.html" class="logo">Labratory</a>
             <nav class="stroke" id="nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -82,135 +232,462 @@
     <div
         style="width: 100%; height: 200px; background-color: #444; text-align: center; align-content: center; margin-bottom: 0;">
         <img src="images/bg8.jpg" alt="" style="height: 100%; width: 100%; object-fit: cover">
-        <h1 style="position: absolute; top: 110px; left: 10%; font-size: 4em; color: white;">RESULTS PAGE</h1>
+        <h1 style="position: absolute; top: 110px; left: 10%; font-size: 4em; color: white;">Results PAGE</h1>
     </div>
 
-    <!-- one -->
-    <section id="one" class="wrapper">
-        <div class="inner">
+    <!-- Main -->
 
-            <button class="accordion">Introduction</button>
-            <div class="panel">
-                <p>
-                    World population maps provide global information, evidence-based
-                    analytics, and knowledge on human presence on the planet. The ultimate goal of these
-                    maps is to ensure that every person is mapped and counted within critical operations
-                    such as policy making and disasters response. Due to the importance associated with
-                    world population maps, the assessment of accuracy and reliability of these datasets is key
-                    to inform any users on benefit and limitations deriving from their usage.
-                </p>
-                <div style="text-align: center;">
-                    <img src="images/Screenshots/overview_introduction_01.jpg" alt="">
-                    <hr>
-                    <img src="images/Screenshots/overview_introduction_02.jpg" alt="">
-                </div>
-            </div>
 
-            <button class="accordion">Data Resources</button>
-            <div class="panel">
-                <p>
-                    This spatial raster dataset depicts the distribution of population, expressed as the number of
-                    people per cell. Residential population estimates for target years 1975, 1990, 2000 and 2015
-                    provided by CIESIN GPWv4.10 were disaggregated from census or administrative units to grid cells,
-                    informed by the distribution and density of built-up as mapped in the Global Human Settlement Layer
-                    (GHSL) global layer per corresponding epoch.
-                </p>
-                <div class="box alt">
-                    <div class="row 50% uniform">
-                        <div class="6u">
-                            <span class="image fit">
-                                <img src="images/Screenshots/GHS Data.PNG" title="GHS Website" />
-                                <!--lable class="lable_position">GHS Website</lable-->
-                            </span>
-                        </div>
-                        <div class="6u">
-                            <span class="image fit">
-                                <img src="images/Screenshots/Worldpop data.PNG" />
-                                <!--lable class="lable_position">Worldpop Website</lable-->
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="inner">
+        <div style="margin-top: 60px;"></div>
+        <header class="align-left">
+            <h2 style="color: black">After performing the different steps as infromed in the slides, we got those outputs for each process:</h2>
+        </header>
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'step1')" id="defaultOpen">STEP 1</button>
+            <button class="tablinks" onclick="openCity(event, 'step2')">STEP 2</button>
+            <button class="tablinks" onclick="openCity(event, 'step3')">STEP 3</button>
+            <button class="tablinks" onclick="openCity(event, 'step4')">STEP 4</button>
+            <button class="tablinks" onclick="openCity(event, 'step5')">STEP 5</button>
+        </div>
 
-            <button class="accordion">Tools</button>
-            <div class="panel">
-                <p>
-                    -QGIS + QGIS Processing Toolbox (GRASS GIS, GDAL) + QGIS Plugins (AcATaMa,QuickMapServices)
-                    <br />-GeoServer
-                    <br />-OpenLayers
-                    <br />-Some additional libraries for styles
-                    <br />-ECharts for us used to display the Statistics Map and Pop of population of Africa
-                    <br />-Html+Css+JavaScript+Json: we use the Html to display the lables, the Css to control the
-                    styles of the label, the Json to store the data and the Js to intersect with them.
-                <div style="text-align: center;">
-                    <img src="images/Screenshots/overview_tools_01.jpg" alt="" width="300px">
-                </div>
-
-                </p>
-            </div>
-            <button class="accordion">Project Purpose</button>
-            <div class="panel">
-                <p>The main purpose of this project is to perform an intercomaparison between population data comes from
-                    two different sources; GHS and Worldpop. After performing this intercomparison we are going to
-                    validate both maps and check the accuracy.
-                    The intercomparison process is done by comparing these two maps within each other. On the other hand
-                    the validation is done by comparing the maps with a reference data set. Usually the reference data
-                    are collected directly from the site to assure reliability but since it’s not possible to do it in
-                    presence in our case we are going to use two reliable base satellite maps (Bing and Google) to
-                    accomplish this step.
-                </p>
-            </div>
-            <button class="accordion">Area of Interest</button>
-            <div class="panel">
-                <p>
-                    Our area of interset -as group 12- is covered by a major part of Africa and small parts of Asia.
-                <div class="6u">
-                    <span class="image fit">
-                        <img src="images/Screenshots/Area of interest.PNG" title="Area of interest:Group_12" />
-                    </span>
-                </div>
-            </div>
-
+        <div id="step1" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            <header class="align-left">
+                <h2>Step1: Preprocessing</h2>
+            </header>
+            <p>
+               
             </p>
+            <div class="slideshow-container" style="width: 90%;">
+
+
+                <div class="mySlides1 fade">
+                    <div class="numbertext"></div>
+                    <img src="images/results_step1234/step1_ghspop.jpg" class="centerr">
+                    <div class="text"></div>
+                </div>
+
+                <div class="mySlides1 fade">
+
+                    <img src="images/results_step1234/step1_worldpop.jpg" class="centerr" ,>
+
+                </div>
+
+               
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"><span
+                        style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                <span class="dot" onclick="currentSlide(2)"><span
+                        style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
+              
+            </div>
+
+            <script>
+                let slideIndex = 1;
+                showSlides(slideIndex);
+
+                function plusSlides(n) {
+                    showSlides(slideIndex += n);
+                }
+
+                function currentSlide(n) {
+                    showSlides(slideIndex = n);
+                }
+
+                function showSlides(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("mySlides1");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) { slideIndex = 1 }
+                    if (n < 1) { slideIndex = slides.length }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndex - 1].style.display = "block";
+                    dots[slideIndex - 1].className += " active";
+                }
+            </script>
+
+
+        </div>
+
+        <div id="step2" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            <div class="inner">
+                <header class="align-left">
+                    <h2>Step2: Intercomparison</h2>
+                </header>
+                <p>
+                    In this step, we calculate the difference map at first to apply the basic statistics. Then, we split
+                    the 31 tiles of our work area and clip the two maps to each of them to calculate the covariance
+                    matrix between the two maps.
+                </p>
+
+                <div>
+                    <div class="slideshow-container" style="width: 90%;">
+
+                        <div class="mySlides2 fade">
+                            
+                            <img src="images/results_step1234/step2_intercomp_diff_int.jpg" class="centerr">
+                        
+                        </div>
+
+                       
+                        <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides2(1)">&#10095;</a>
+
+                    </div>
+                    <br>
+
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide2(1)"><span
+                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                      
+                    </div>
+
+                    <script>
+                        let slideIndex2 = 1;
+                        showSlides2(slideIndex2);
+
+                        function plusSlides2(m) {
+                            showSlides2(slideIndex2 += m);
+                        }
+
+                        function currentSlide2(m) {
+                            showSlides2(slideIndex2 = m);
+                        }
+
+                        function showSlides2(m) {
+                            let i;
+                            let slides2 = document.getElementsByClassName("mySlides2");
+                            let dots2 = document.getElementsByClassName("dot");
+                            if (m > slides2.length) { slideIndex2 = 1 }
+                            if (m < 1) { slideIndex2 = slides2.length }
+                            for (i = 0; i < slides2.length; i++) {
+                                slides2[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots2.length; i++) {
+                                dots2[i].className = dots2[i].className.replace(" active", "");
+                            }
+                            slides2[slideIndex2 - 1].style.display = "block";
+                            dots2[slideIndex2 - 1].className += " active";
+                        }
+                    </script>
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+        <div id="step3" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            <div class="inner">
+                <header class="align-left">
+                    <h2>Step3: Preprocessing data for validation</h2>
+                </header>
+                <p>
+                    In this step we used the raster calculator do to define the areas where we have built areas in both
+                    maps so can use this map later in our validation. Later, we compute the difference between these two
+                    maps to obtain a three scenarios map, showing the area where we have buildings in GHS but not
+                    Worldpop, areas where we have buildings in Worldpop but not in GHS, and areas where both maps are
+                    populated or not populated.
+                </p>
+
+                <div>
+                    <div class="slideshow-container" style="width: 90%;">
+
+                        <div class="mySlides3 fade">
+                            <div class="numbertext"></div>
+                            <img src="images/results_step1234/step3_difference_3scenarios_in.jpg" class="centerr">
+                            <div class="text"></div>
+                        </div>
+
+                        <div class="mySlides3 fade">
+
+                            <img src="images/results_step1234/step3_ghs.jpg" class="centerr" ,>
+
+                        </div>
+
+                        <div class="mySlides3 fade">
+                            <img src="images/results_step1234/step3_worldpop.jpg" class="centerr">
+
+                        </div>                    
+
+                        <a class="prev" onclick="plusSlides3(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides3(1)">&#10095;</a>
+
+                    </div>
+                    <br>
+
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide3(1)"><span
+                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                        <span class="dot" onclick="currentSlide3(2)"><span
+                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
+                        <span class="dot" onclick="currentSlide3(3)"><span
+                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">3</span></span>
+                       
+                    </div>
+
+                    <script>
+                        let slideIndex3 = 1;
+                        showSlides3(slideIndex3);
+
+                        function plusSlides3(m) {
+                            showSlides3(slideIndex3 += m);
+                        }
+
+                        function currentSlide3(m) {
+                            showSlides3(slideIndex3 = m);
+                        }
+
+                        function showSlides3(m) {
+                            let i;
+                            let slides3 = document.getElementsByClassName("mySlides3");
+                            let dots3 = document.getElementsByClassName("dot");
+                            if (m > slides3.length) { slideIndex3 = 1 }
+                            if (m < 1) { slideIndex3 = slides3.length }
+                            for (i = 0; i < slides3.length; i++) {
+                                slides3[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots3.length; i++) {
+                                dots3[i].className = dots3[i].className.replace(" active", "");
+                            }
+                            slides3[slideIndex3 - 1].style.display = "block";
+                            dots3[slideIndex3 - 1].className += " active";
+                        }
+                    </script>
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+        <div id="step4" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            <div class="inner">
+                <header class="align-left">
+                    <h2>Step4: Validation</h2>
+                </header>
+                <p>
+                    This step is the main step in our work, here compared the data in the given two maps with a
+                    reference data by using different base maps. Since it’s required to create a sample of 600 points,
+                    the work load was divided into 200 sample for each student. To perform the validation process we had
+                    to install AcATaMa plugin in QGIS which refers to Accuracy Assessment of Thematic Maps. We used also python script to calculate the accuracy for both maps.
+                </p>
+
+                <div>
+                    <div class="slideshow-container" style="width: 90%;">
+
+                        <div class="mySlides4 fade">
+                            <div class="numbertext"></div>
+                            <img src="images/results_step1234/step4_600_points.jpg" class="centerr">
+                            <div class="text"></div>
+                        </div>
+
+        
+
+                        <a class="prev" onclick="plusSlides4(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides4(1)">&#10095;</a>
+
+                    </div>
+                    <br>
+
+                    <div style="text-align:center">
+                        
+                        <span class="dot" onclick="currentSlide4(1)"><span
+                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                    
+                    </div>
+
+                    <script>
+                        let slideIndex4 = 1;
+                        showSlides4(slideIndex4);
+
+                        function plusSlides4(m) {
+                            showSlides4(slideIndex4 += m);
+                        }
+
+                        function currentSlide4(m) {
+                            showSlides4(slideIndex4 = m);
+                        }
+
+                        function showSlides4(m) {
+                            let i;
+                            let slides4 = document.getElementsByClassName("mySlides4");
+                            let dots4 = document.getElementsByClassName("dot");
+                            if (m > slides4.length) { slideIndex4 = 1 }
+                            if (m < 1) { slideIndex4 = slides4.length }
+                            for (i = 0; i < slides4.length; i++) {
+                                slides4[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots4.length; i++) {
+                                dots4[i].className = dots4[i].className.replace(" active", "");
+                            }
+                            slides4[slideIndex4 - 1].style.display = "block";
+                            dots4[slideIndex4 - 1].className += " active";
+                        }
+                    </script>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+        <div id="step5" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            <div class="inner">
+                <header class="align-left">
+                    <h2>Step5: Develop a website and Web GIS</h2>
+                </header>
+                <p>
+                         -For the development of the website we take advantage of existing templates.
+                    <br />-We explore more about HTML, CSS, JavaScript, jQuery and useful resources in the W3School.
+                    <br />-OpenLayers provides a large list of examples of its library so we used some of them.
+                    <br />-GeoServer was adopted as our WebGIS 
+                    <br />-Uploading our project on GITHUB was and added value so we were able to work in parallel which gave us more efficiency. 
+                </p>
+
+                <div>
+                    <div class="slideshow-container" style="width: 90%;">
+                        <div class="mySlides5 fade">
+                            <div class="numbertext"></div>
+                            <img src="images/Screenshots/step5_coding.png" style="width:100%" ,>
+                            <div class="text"></div>
+                        </div>
+
+
+                        <div class="mySlides5 fade">
+
+                            <img src="images/Screenshots/step5_geoserver.jpg" style="width:100%">
+
+                        </div>
+
+                        <div class="mySlides5 fade">
+
+                            <img src="images/Screenshots/step5_github.png" style="width:100%">
+
+                        </div>
+
+                        <a class="prev" onclick="plusSlides5(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides5(1)">&#10095;</a>
+
+                    </div>
+                    <br>
+
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide5(1)"><span
+                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                        <span class="dot" onclick="currentSlide5(2)"><span
+                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
+                    </div>
+
+                    <script>
+                        let slideIndex5 = 1;
+                        showSlides5(slideIndex5);
+
+                        function plusSlides5(m) {
+                            showSlides5(slideIndex5 += m);
+                        }
+
+                        function currentSlide5(m) {
+                            showSlides5(slideIndex5 = m);
+                        }
+
+                        function showSlides5(m) {
+                            let i;
+                            let slides5 = document.getElementsByClassName("mySlides5");
+                            let dots5 = document.getElementsByClassName("dot");
+                            if (m > slides5.length) { slideIndex5 = 1 }
+                            if (m < 1) { slideIndex5 = slides5.length }
+                            for (i = 0; i < slides5.length; i++) {
+                                slides5[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots5.length; i++) {
+                                dots5[i].className = dots5[i].className.replace(" active", "");
+                            }
+                            slides5[slideIndex5 - 1].style.display = "block";
+                            dots5[slideIndex5 - 1].className += " active";
+                        }
+                    </script>
+                </div>
+
+
+            </div>
+
+
+
+
+
+
         </div>
 
         <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
-
-            for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                    if (panel.style.maxHeight) {
-                        panel.style.maxHeight = null;
-                    } else {
-                        panel.style.maxHeight = panel.scrollHeight + "px";
-                    }
-                });
+            function openCity(evt, cityName) {
+                let i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
             }
+
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
         </script>
 
 
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <div class="flex">
+                    <div style="font-size: large;" class="copyright">
+                        &copy; GROUP 12
+                    </div>
+                    <ul class="icons">
+                        <li><a href="#" style="font-size: large;" class="icon fa-github"><span
+                                    class="label">GITHUB</span></a></li>
 
-
-    </section>
-    <!-- Footer -->
-    <footer id="footer">
-        <div class="inner">
-            <div class="flex">
-                <div style="font-size: large;" class="copyright">
-                    &copy; GROUP 12
+                    </ul>
                 </div>
-                <ul class="icons">
-                    <li><a href="#" style="font-size: large;" class="icon fa-github"><span
-                                class="label">GITHUB</span></a></li>
-
-                </ul>
             </div>
-        </div>
-    </footer>
+        </footer>
+
 </body>
 
 </html>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
