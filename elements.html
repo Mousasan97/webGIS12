@@ -105,7 +105,7 @@
             width: auto;
             padding: 16px;
             margin-top: -22px;
-            color: white;
+            color: rgb(29, 24, 24);
             font-weight: bold;
             font-size: 18px;
             transition: 0.6s ease;
@@ -115,6 +115,7 @@
 
         /* Position the "next button" to the right */
         .next {
+            
             right: 0;
             border-radius: 3px 0 0 3px;
         }
@@ -291,7 +292,7 @@
             </div>
 
             <script>
-                var slideIndex = 1;
+                let slideIndex = 1;
                 showSlides(slideIndex);
 
                 function plusSlides(n) {
@@ -303,9 +304,9 @@
                 }
 
                 function showSlides(n) {
-                    var i;
-                    var slides = document.getElementsByClassName("mySlides1");
-                    var dots = document.getElementsByClassName("dot");
+                    let i;
+                    let slides = document.getElementsByClassName("mySlides1");
+                    let dots = document.getElementsByClassName("dot");
                     if (n > slides.length) { slideIndex = 1 }
                     if (n < 1) { slideIndex = slides.length }
                     for (i = 0; i < slides.length; i++) {
@@ -334,9 +335,81 @@
                     matrix between the two maps.
                 </p>
 
+                <div>
+                    <div class="slideshow-container" style="width: 90%;">
+            
+                        <div class="mySlides2 fade">
+                            <div class="numbertext"></div>
+                            <img src="images/Screenshots/step2_diff.PNG" style="width:100%">
+                            <div class="text"></div>
+                        </div>
+            
+                        <div class="mySlides2 fade">
+                           
+                            <img src="images/Screenshots/github.svg" style="width:100%",>
+                            
+                        </div>
+            
+                        <div class="mySlides2 fade">
+                            <img src="images/Screenshots/Ghs_step1.PNG" style="width:100%">
+                        
+                        </div>
+                        <div class="mySlides2 fade">
+                            <img src="images/Screenshots/diff_statistics.PNG" style="width:100%">
+                            
+                        </div>
+            
+                        <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides2(1)">&#10095;</a>
+            
+                    </div>
+                    <br>
+            
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide2(1)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                        <span class="dot" onclick="currentSlide2(2)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
+                        <span class="dot" onclick="currentSlide2(3)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">3</span></span>
+                        <span class="dot" onclick="currentSlide2(4)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">4</span></span>
+                    </div>
+            
+                    <script>
+                        let slideIndex2 = 1;
+                        showSlides2(slideIndex2);
+            
+                        function plusSlides2(m) {
+                            showSlides2(slideIndex2 += m);
+                        }
+            
+                        function currentSlide2(m) {
+                            showSlides2(slideIndex2 = m);
+                        }
+            
+                        function showSlides2(m) {
+                            let i;
+                            let slides2 = document.getElementsByClassName("mySlides2");
+                            let dots2 = document.getElementsByClassName("dot");
+                            if (m > slides2.length) { slideIndex2 = 1 }
+                            if (m < 1) { slideIndex2 = slides2.length }
+                            for (i = 0; i < slides2.length; i++) {
+                                slides2[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots2.length; i++) {
+                                dots2[i].className = dots2[i].className.replace(" active", "");
+                            }
+                            slides2[slideIndex2 - 1].style.display = "block";
+                            dots2[slideIndex2 - 1].className += " active";
+                        }
+                    </script>
+                </div>
     
         </div>
     
+    
+      
+
+            
+          
+    </div>
     
         <div id="step3" class="tabcontent">
             <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
@@ -351,32 +424,258 @@
                     Worldpop, areas where we have buildings in Worldpop but not in GHS, and areas where both maps are
                     populated or not populated.
                 </p>
+
+    <div>
+        <div class="slideshow-container" style="width: 90%;">
+
+            <div class="mySlides3 fade">
+                <div class="numbertext"></div>
+                <img src="images/Screenshots/github.svg" style="width:100%">
+                <div class="text"></div>
             </div>
+
+            <div class="mySlides3 fade">
+               
+                <img src="images/Screenshots/diff_statistics.PNG" style="width:100%",>
+                
+            </div>
+
+            <div class="mySlides3 fade">
+                <img src="images/Screenshots/GHS Data.PNG" style="width:100%">
+            
+            </div>
+            <div class="mySlides3 fade">
+                <img src="images/Screenshots/github.svg" style="width:100%">
+                
+            </div>
+
+            <a class="prev" onclick="plusSlides3(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides3(1)">&#10095;</a>
+
+        </div>
+        <br>
+
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide3(1)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+            <span class="dot" onclick="currentSlide3(2)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
+            <span class="dot" onclick="currentSlide3(3)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">3</span></span>
+            <span class="dot" onclick="currentSlide3(4)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">4</span></span>
         </div>
 
-        <div id="step4" class="tabcontent">
-            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-            STEP 4
-  
+        <script>
+            let slideIndex3 = 1;
+            showSlides3(slideIndex3);
+
+            function plusSlides3(m) {
+                showSlides3(slideIndex3 += m);
+            }
+
+            function currentSlide3(m) {
+                showSlides3(slideIndex3 = m);
+            }
+
+            function showSlides3(m) {
+                let i;
+                let slides3 = document.getElementsByClassName("mySlides3");
+                let dots3 = document.getElementsByClassName("dot");
+                if (m > slides3.length) { slideIndex3 = 1 }
+                if (m < 1) { slideIndex3 = slides3.length }
+                for (i = 0; i < slides3.length; i++) {
+                    slides3[i].style.display = "none";
+                }
+                for (i = 0; i < dots3.length; i++) {
+                    dots3[i].className = dots3[i].className.replace(" active", "");
+                }
+                slides3[slideIndex3 - 1].style.display = "block";
+                dots3[slideIndex3 - 1].className += " active";
+            }
+        </script>
+    </div>
+              
     
-        
-        
-        
-        
-        
-        <div id="step5" class="tabcontent">
-            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-            STEP 5
+        </div>
+    
+    
+      
 
             
           
     </div>
 
+        <div id="step4" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            <div class="inner">
+                <header class="align-left">
+                    <h2>Step4:</h2>
+                </header>
+                <p>
+                    In this step
+                </p>
+
+                <div>
+                    <div class="slideshow-container" style="width: 90%;">
+            
+                        <div class="mySlides4 fade">
+                            <div class="numbertext"></div>
+                            <img src="images/Screenshots/step1_setNull.PNG" style="width:100%">
+                            <div class="text"></div>
+                        </div>
+            
+                        <div class="mySlides4 fade">
+                           
+                            <img src="images/Screenshots/step1_translation.PNG" style="width:100%",>
+                            
+                        </div>
+            
+                        <div class="mySlides4 fade">
+                            <img src="images/Screenshots/step1_translation.PNG" style="width:100%">
+                        
+                        </div>
+                        <div class="mySlides4 fade">
+                            <img src="images/Screenshots/Step2_splitting_tiles.PNG" style="width:100%">
+                            
+                        </div>
+            
+                        <a class="prev" onclick="plusSlides4(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides4(1)">&#10095;</a>
+            
+                    </div>
+                    <br>
+            
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide4(1)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                        <span class="dot" onclick="currentSlide4(2)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
+                        <span class="dot" onclick="currentSlide4(3)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">3</span></span>
+                        <span class="dot" onclick="currentSlide4(4)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">4</span></span>
+                    </div>
+            
+                    <script>
+                        let slideIndex4 = 1;
+                        showSlides4(slideIndex4);
+            
+                        function plusSlides4(m) {
+                            showSlides4(slideIndex4 += m);
+                        }
+            
+                        function currentSlide4(m) {
+                            showSlides4(slideIndex4 = m);
+                        }
+            
+                        function showSlides4(m) {
+                            let i;
+                            let slides4 = document.getElementsByClassName("mySlides4");
+                            let dots4 = document.getElementsByClassName("dot");
+                            if (m > slides4.length) { slideIndex4 = 1 }
+                            if (m < 1) { slideIndex4 = slides4.length }
+                            for (i = 0; i < slides4.length; i++) {
+                                slides4[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots4.length; i++) {
+                                dots4[i].className = dots4[i].className.replace(" active", "");
+                            }
+                            slides4[slideIndex4 - 1].style.display = "block";
+                            dots4[slideIndex4 - 1].className += " active";
+                        }
+                    </script>
+                </div>
+              
+    
         </div>
+
+
+
+        </div>
+
+        <div id="step5" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            <div class="inner">
+                <header class="align-left">
+                    <h2>Step5:</h2>
+                </header>
+                <p>
+                    In this step 5
+                </p>
+
+                <div>
+                    <div class="slideshow-container" style="width: 90%;">
+            
+                        <div class="mySlides5 fade">
+                            <div class="numbertext"></div>
+                            <img src="images/Screenshots/Mousa.jpeg" style="width:100%">
+                            <div class="text"></div>
+                        </div>
+            
+                        <div class="mySlides5 fade">
+                           
+                            <img src="images/Screenshots/diff_statistics.PNG" style="width:100%",>
+                            
+                        </div>
+            
+                        <div class="mySlides5 fade">
+                            <img src="images/Screenshots/Mousa.jpeg" style="width:100%">
+                        
+                        </div>
+                        <div class="mySlides5 fade">
+                            <img src="images/Screenshots/github.svg" style="width:100%">
+                            
+                        </div>
+            
+                        <a class="prev" onclick="plusSlides5(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides5(1)">&#10095;</a>
+            
+                    </div>
+                    <br>
+            
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide5(1)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                        <span class="dot" onclick="currentSlide5(2)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
+                        <span class="dot" onclick="currentSlide5(3)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">3</span></span>
+                        <span class="dot" onclick="currentSlide5(4)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">4</span></span>
+                    </div>
+            
+                    <script>
+                        let slideIndex5 = 1;
+                        showSlides5(slideIndex5);
+            
+                        function plusSlides5(m) {
+                            showSlides5(slideIndex5 += m);
+                        }
+            
+                        function currentSlide5(m) {
+                            showSlides5(slideIndex5 = m);
+                        }
+            
+                        function showSlides5(m) {
+                            let i;
+                            let slides5 = document.getElementsByClassName("mySlides5");
+                            let dots5 = document.getElementsByClassName("dot");
+                            if (m > slides5.length) { slideIndex5 = 1 }
+                            if (m < 1) { slideIndex5 = slides5.length }
+                            for (i = 0; i < slides5.length; i++) {
+                                slides5[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots5.length; i++) {
+                                dots5[i].className = dots5[i].className.replace(" active", "");
+                            }
+                            slides5[slideIndex5 - 1].style.display = "block";
+                            dots5[slideIndex5 - 1].className += " active";
+                        }
+                    </script>
+                </div>
+              
+    
+        </div>
+    
+    
+      
+
+            
+          
+    </div>
 
         <script>
             function openCity(evt, cityName) {
-                var i, tabcontent, tablinks;
+                let i, tabcontent, tablinks;
                 tabcontent = document.getElementsByClassName("tabcontent");
                 for (i = 0; i < tabcontent.length; i++) {
                     tabcontent[i].style.display = "none";
