@@ -1,4 +1,4 @@
-git /*Base Map*/
+/*Base Map*/
 
 //OSM Maps
 var osm = new ol.layer.Tile({
