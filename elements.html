@@ -5,6 +5,7 @@
     Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
+
 <head>
     <title>Process</title>
     <meta charset="utf-8" />
@@ -15,22 +16,213 @@
             position: absolute;
             right: 150px;
         }
+
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #999494;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 0px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: rgb(82, 76, 76);
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+        /* Style the close button */
+        .topright {
+            float: right;
+            cursor: pointer;
+            font-size: 28px;
+        }
+
+        .topright:hover {
+            color: red;
+        }
+
+
+        .mySlides {
+            display: none
+        }
+
+        .mySlides2 {
+            display: none
+        }
+        .mySlides3 {
+            display: none
+        }
+
+        .mySlides4 {
+            display: none
+        }
+
+        .mySlides5 {
+            display: none
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Caption text */
+        .text {
+            color: #000000;
+            font-size: 25px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #000000;
+            font-size: 20px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 25px;
+            width: 25px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+
+            .prev,
+            .next,
+            .text {
+                font-size: 11px
+            }
+        }
     </style>
 </head>
+
 <body class="subpage">
 
     <!-- Header -->
     <header id="header">
         <div class="inner">
             <a href="index.html" class="logo">Labtory</a>
-            <nav id="nav">
-                <a href="index.html">Home</a>
-                <a href="generic.html">Generic</a>
-                <a href="elements.html">Elements</a>
-                <a href="echartsData.html" class="active">Group 12:echarts</a>
-                <a href="map3.html">Group 12</a>
-                <a href="map_for_query_sampled_info.html">Sampled Info</a>
-
+           <nav class="stroke" id="nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li>                <a href="generic.html">OVERVIEW </a>                    </li>
+                    <li>                <a href="elements.html">Methodolgy</a>
+                    </li>
+                    <li>                <a href="echartsData.html">Tiles COV </a>
+                    </li>
+                    <li>                <a href="map3.html">MAP DATA</a>
+                    </li>
+                    <li>                <a href="map_for_query_sampled_info.html">Sampled Info</a>
+                    </li>
+                </ul>
+                
+                
             </nav>
         </div>
     </header>
@@ -39,207 +231,186 @@
 
 
     <div class="inner">
+        <div style="margin-top: 60px;"></div>
         <header class="align-left">
             <h2>Processes</h2>
         </header>
-        <header class="align-left">
-            <h2>Step1: Preprocessing</h2>
-        </header>
-        <p>
-            We downloaded the appropriate data for our project making sure that the two maps are compatible and applicable to intercomparison, then we clip the two maps to our area of interest (group 12 tiles).
-            Later we applied some raster calculations and geo-processing tools to obtain two integers maps removing all the no data values and applying some styling to get the two following maps:
-        </p>
-        <div class="box alt">
-            <div class="row 50% uniform">
-                <div class="6u">
-                    <span class="image fit">
-                        <img src="images/Screenshots/Sstep1_clipping.PNG" />
-                        <lable class="lable_position">Step1_clipping</lable>
-                    </span>
-                </div>
-                <div class="6u">
-                    <span class="image fit">
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'step1')" id="defaultOpen">STEP 1</button>
+            <button class="tablinks" onclick="openCity(event, 'step2')">STEP 2</button>
+            <button class="tablinks" onclick="openCity(event, 'step3')">STEP 3</button>
+            <button class="tablinks" onclick="openCity(event, 'step4')">STEP 4</button>
+            <button class="tablinks" onclick="openCity(event, 'step5')">STEP 5</button>
+        </div>
 
-                        <img src="images/Screenshots/step1_Raster_calc1.PNG" />
-                        <lable class="lable_position">Step1_Raster_calc1</lable>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="box alt">
-            <div class="row 50% uniform">
-                <div class="6u">
-                    <span class="image fit">
-                        <img src="images/Screenshots/step1_Raster_calc2.PNG" />
-                        <lable class="lable_position">Step1_Raster_calc2</lable>
-                    </span>
-                </div>
-                <div class="6u">
-                    <span class="image fit">
-                        <img src="images/Screenshots/step1_setNull.PNG" />
-                        <lable class="lable_position">Step1_setNull</lable>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="box alt">
-            <div class="row 50% uniform">
-                <div class="6u">
-                    <span class="image fit">
-                        <img src="images/Screenshots/step1_translation.PNG" />
-                        <lable class="lable_position">Step1_translation</lable>
-                    </span>
+        <div id="step1" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            <header class="align-left">
+                <h2>Step1: Preprocessing</h2>
+            </header>
+            <p>
+                We downloaded the appropriate data for our project making sure that the two maps are compatible and
+                applicable to intercomparison, then we clip the two maps to our area of interest (group 12 tiles).
+                Later we applied some raster calculations and geo-processing tools to obtain two integers maps removing
+                all the no data values and applying some styling to get the two following maps:
+            </p>
+            <div class="slideshow-container" style="width: 90%;">
+
+                <div class="mySlides1 fade">
+                    <div class="numbertext"></div>
+                    <img src="images/Screenshots/Picture1.png" style="width:100%">
+                    <div class="text"></div>
                 </div>
 
+                <div class="mySlides1 fade">
+                   
+                    <img src="images/Screenshots/step1_Raster_calc1.PNG" style="width:100%",>
+                    
+                </div>
+
+                <div class="mySlides1 fade">
+                    <img src="images/Screenshots/step1_setNull.PNG" style="width:100%">
+                
+                </div>
+                <div class="mySlides1 fade">
+                    <img src="images/Screenshots/step1_translation.PNG" style="width:100%">
+                    
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
             </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                <span class="dot" onclick="currentSlide(2)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
+                <span class="dot" onclick="currentSlide(3)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">3</span></span>
+                <span class="dot" onclick="currentSlide(4)"><span style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">4</span></span>
+            </div>
+
+            <script>
+                var slideIndex = 1;
+                showSlides(slideIndex);
+
+                function plusSlides(n) {
+                    showSlides(slideIndex += n);
+                }
+
+                function currentSlide(n) {
+                    showSlides(slideIndex = n);
+                }
+
+                function showSlides(n) {
+                    var i;
+                    var slides = document.getElementsByClassName("mySlides1");
+                    var dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) { slideIndex = 1 }
+                    if (n < 1) { slideIndex = slides.length }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndex - 1].style.display = "block";
+                    dots[slideIndex - 1].className += " active";
+                }
+            </script>
+
+
         </div>
+
+        <div id="step2" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            <div class="inner">
+                <header class="align-left">
+                    <h2>Step2:Intercomparison</h2>
+                </header>
+                <p>
+                    In this step, we calculate the difference map at first to apply the basic statistics. Then, we split
+                    the 31 tiles of our work area and clip the two maps to each of them to calculate the covariance
+                    matrix between the two maps.
+                </p>
+
+    
+        </div>
+    
+    
+        <div id="step3" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            <div class="inner">
+                <header class="align-left">
+                    <h2>Step3:Preprocessing data for validation</h2>
+                </header>
+                <p>
+                    In this step we used the raster calculator do to define the areas where we have built areas in both
+                    maps so can use this map later in our validation. Later, we compute the difference between these two
+                    maps to obtain a three scenarios map, showing the area where we have buildings in GHS but not
+                    Worldpop, areas where we have buildings in Worldpop but not in GHS, and areas where both maps are
+                    populated or not populated.
+                </p>
+            </div>
+        </div>
+
+        <div id="step4" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            STEP 4
+  
+    
+        
+        
+        
+        
+        
+        <div id="step5" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            STEP 5
+
+            
+          
     </div>
 
-    <div class="inner">
-        <header class="align-left">
-            <h2>Step2:Intercomparison</h2>
-        </header>
-        <p>
-            In this step, we calculate the difference map at first to apply the basic statistics. Then, we split the 31 tiles of our work area and clip the two maps to each of them to calculate the covariance matrix between the two maps.
-        </p>
-        <div class="box alt">
-            <div class="row 50% uniform">
-                <div class="6u">
-                    <span class="image fit">
-                        <img src="images/Screenshots/step2_clipping_tiles.PNG" />
-
-                        <lable class="lable_position">step2_clipping_tiles</lable>
-                    </span>
-                </div>
-                <div class="6u">
-                    <span class="image fit">
-
-                        <img src="images/Screenshots/step2_covar.PNG" />
-                        <lable class="lable_position">step2_covar</lable>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="box alt">
-            <div class="row 50% uniform">
-                <div class="6u">
-                    <span class="image fit">
-                        <img src="images/Screenshots/step2_diff.PNG" />
-                        <lable class="lable_position">step2_diff</lable>
-                    </span>
-                </div>
-                <div class="6u">
-                    <span class="image fit">
-
-                        <img src="images/Screenshots/step2_splitted_tiles.PNG" style="height:500px;width:500px" />
-                        <lable class="lable_position">0step2_splitted_tiles</lable>
-                    </span>
-                </div>
-            </div>
         </div>
 
-        <div class="box alt">
-            <div class="row 50% uniform">
-                <div class="6u">
-                    <span class="image fit">
-                        <img src="images/Screenshots/Step2_splitting_tiles.PNG" />
-                        <lable class="lable_position">Step2_splitting_tiles</lable class="lable_position">
-                    </span>
+        <script>
+            function openCity(evt, cityName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+        </script>
+
+    
+        <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <div class="flex">
+                <div style="font-size: large;" class="copyright">
+                    &copy; GROUP 12 
                 </div>
+                <ul class="icons">
+                    <li><a href="#" style="font-size: large;" class="icon fa-github"><span class="label">GITHUB</span></a></li>
 
+                </ul>
             </div>
         </div>
+    </footer>
 
-    </div>
-
-    <div class="inner">
-        <header class="align-left">
-            <h2>Step3:Preprocessing data for validation</h2>
-        </header>
-        <p>
-            In this step we used the raster calculator do to define the areas where we have built areas in both maps so can use this map later in our validation. Later, we compute the difference between these two maps to obtain a three scenarios map, showing the area where we have buildings in GHS but not Worldpop, areas where we have buildings in Worldpop but not in GHS, and areas where both maps are populated or not populated.
-        </p>
-    </div>
-
-    <div class="inner">
-        <header class="align-left">
-            <h2>Step4:Validation </h2>
-        </header>
-        <p>
-
-            This step is the main step in our work, here compared the data in the given two maps with a reference data by using different base maps. Since it’s required to create a sample of 600 points, the work load was divided into 200 sample for each student. To perform the validation process we had to install AcATaMa plugin in QGIS which refers to Accuracy Assessment of Thematic Maps.
-
-        </p>  <div class="table-wrapper">
-            <table class="table table-bordered">
-                <thead class="alt">
-                    <tr>
-                        <th>Thematic_class_worldPop/Classified</th>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>UA</th>
-                        <th>PA</th>
-                        <th>OA</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>341</td>
-                        <td>14</td>
-                        <td>0.96</td>
-                        <td>0.65</td>
-                        <td>0.668333333</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>185</td>
-                        <td>60</td>
-                        <td>0.24</td>
-                        <td>0.81</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="inner">
-        <header class="align-left">
-            <div class="table-wrapper">
-                <table class="table table-bordered">
-                    <thead class="alt">
-                        <tr>
-                            <th>Thematic_class_GHS/Classified</th>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>UA</th>
-                            <th>PA</th>
-                            <th>OA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1  </td>
-                            <td>314</td>
-                            <td>45</td>
-                            <td>0.87</td>
-                            <td>0.6</td>
-                            <td>0.57</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>213</td>
-                            <td>28</td>
-                            <td>0.12</td>
-                            <td>0.38</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </header>
-    </div>
 </body>
+
 </html>
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
