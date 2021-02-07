@@ -4,7 +4,16 @@
 <head>
     <title>Group 12-Sampled Info</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />   
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- The two css files must be placed in order, or there is no conflict -->
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- <link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+
+    <link href="v6.5.0/css/ol.css" rel="stylesheet" />
+    <link href="ol-layerswitcher-master/ol-layerswitcher.css" rel="stylesheet" />
 </head>
 
 <body class="subpage">
@@ -46,16 +55,13 @@
     <footer id="footer">
         <div class="inner">
             <div class="flex">
-                <div class="copyright">
-                    &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a
-                        href="https://unsplash.com">Unsplash</a>.
+                <div style="font-size: large;" class="copyright">
+                    &copy; GROUP 12
                 </div>
                 <ul class="icons">
-                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="#" class="icon fa-linkedin"><span class="label">linkedIn</span></a></li>
-                    <li><a href="#" class="icon fa-pinterest-p"><span class="label">Pinterest</span></a></li>
-                    <li><a href="#" class="icon fa-vimeo"><span class="label">Vimeo</span></a></li>
+                    <li><a href="https://github.com/Mousasan97/webGIS12" style="font-size: large;"
+                            class="icon fa-github"><span class="label">GITHUB</span></a></li>
+
                 </ul>
             </div>
         </div>
@@ -69,14 +75,6 @@
 <script src="ol-layerswitcher-master/ol-layerswitcher.js"></script>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
-<!-- The two css files must be placed in order, or there is no conflict -->
-<link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
-<!-- <link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" /> -->
-<link rel="stylesheet" href="assets/css/main.css" />
-
-
-<link href="v6.5.0/css/ol.css" rel="stylesheet" />
-<link href="ol-layerswitcher-master/ol-layerswitcher.css" rel="stylesheet" />
 
 <script type="text/javascript">
 
@@ -126,8 +124,8 @@
             })
         ],
         view: new ol.View({
-            center: [15, 0],
-            zoom: 4
+            center: [0, 0],
+            zoom: 3
         })
     });
 
