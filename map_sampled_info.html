@@ -1,46 +1,54 @@
 ﻿<!DOCTYPE HTML>
 <html>
+
 <head>
     <title>Group 12-Sampled Info</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />   
 </head>
+
 <body class="subpage">
 
-   <!-- Header -->
-   <header id="header">
-    <div class="inner">
-        <a href="index.html" class="logo">labotory</a>
-        <nav class="stroke" id="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>                <a href="overview.html">OVERVIEW </a>                    </li>
-                <li>                <a href="methodology.html">Methodology</a>
-                </li>
-                <li>                <a href="map_tiles_cov.html">Tiles COV </a>
-                </li>
-                <li>                <a href="map_data.html">MAP DATA</a>
-                </li>
-                <li>                <a href="map_sampled_info.html" class="active">Sampled Info</a>
-                </li>
-            </ul>  
-        </nav>            
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo">labotory</a>
+            <nav class="stroke" id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li> <a href="overview.html">OVERVIEW </a> </li>
+                    <li> <a href="methodology.html">Methodology</a>
+                    </li>
+                    <li> <a href="map_tiles_cov.html">Tiles COV </a>
+                    </li>
+                    <li> <a href="map_data.html">MAP DATA</a>
+                    </li>
+                    <li> <a href="map_sampled_info.html">Sampled Info</a>
+                    </li>
+                    <li> <a href="results.html">RESULTS</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div
+        style="width: 100%; height: 200px; background-color: #444; text-align: center; align-content: center; margin-bottom: 0;">
+        <img src="images/bg8.jpg" alt="" style="height: 100%; width: 100%; object-fit: cover">
+        <h1 style="position: absolute; top: 110px; left: 10%; font-size: 4em; color: white;">SAMPLED INFO PAGE</h1>
     </div>
-</header>
 
     <div id="map" class="map"></div>
     <div id="popup" style=" width: 230px;
-                            height:auto"
-        
-         >&nbsp;</div>
+                            height:auto">&nbsp;</div>
 
     <!-- Footer -->
     <footer id="footer">
         <div class="inner">
             <div class="flex">
                 <div class="copyright">
-                    &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+                    &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a
+                        href="https://unsplash.com">Unsplash</a>.
                 </div>
                 <ul class="icons">
                     <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -53,6 +61,7 @@
         </div>
     </footer>
 </body>
+
 </html>
 
 <script src="js/jquery.min.js"></script>
@@ -60,8 +69,12 @@
 <script src="ol-layerswitcher-master/ol-layerswitcher.js"></script>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
+<!-- The two css files must be placed in order, or there is no conflict -->
 <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
-<link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<!-- <link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" /> -->
+<link rel="stylesheet" href="assets/css/main.css" />
+
+
 <link href="v6.5.0/css/ol.css" rel="stylesheet" />
 <link href="ol-layerswitcher-master/ol-layerswitcher.css" rel="stylesheet" />
 
@@ -69,9 +82,9 @@
 
 
     var osm = new ol.layer.Tile({
-        title: 'OpenStreetMap', 
-        type: 'base', 
-        visible: true, 
+        title: 'OpenStreetMap',
+        type: 'base',
+        visible: true,
         source: new ol.source.OSM()
     });
 
@@ -95,16 +108,16 @@
     }
     //set layer
     var step4_sampled_ghs_worldpop = new ol.layer.Vector({
-        title: 'step4:sampled_ghs_worldpop', 
+        title: 'step4:sampled_ghs_worldpop',
         source: vectorSource_ghs_worldpop
     });
-    
+
     var map = new ol.Map({
-        target: 'map', 
-        layers: [ 
+        target: 'map',
+        layers: [
             new ol.layer.Group({
-                title: 'Base Maps', 
-                layers: [osm] 
+                title: 'Base Maps',
+                layers: [osm]
 
             }),
             new ol.layer.Group({
@@ -117,13 +130,13 @@
             zoom: 4
         })
     });
-    
+
     var elementPopup = document.getElementById('popup');
-    
+
     var popup = new ol.Overlay({
         element: elementPopup
     });
-    
+
     map.addOverlay(popup);
 
     var highlightStyle = new ol.style.Style({
@@ -154,9 +167,9 @@
         },
     });
     var highlight;
-    
+
     map.on('click', function (event) {
-        
+
         var feature = map.forEachFeatureAtPixel(event.pixel, function (feature, layer) {
             return feature;
         });
@@ -170,27 +183,27 @@
                 }
                 highlight = feature;
             };
-            
+
             var pixel = event.pixel;
-            pixel[0,0] = pixel[0,0] - 115,115;
-          
+            pixel[0, 0] = pixel[0, 0] - 115, 115;
+
             var coord = map.getCoordinateFromPixel(pixel);
-         
+
             popup.setPosition(coord);
 
-            $(elementPopup).attr('title', 'Sample Info'); 
+            $(elementPopup).attr('title', 'Sample Info');
             $(elementPopup).attr('data-content',
                 '<b>Class_ghs: </b>' + feature.get('Class Name')
                 + '</br> <b>Class_worldpop:</b>' + feature.get('sampled_wo')
                 + '</br> <b>Match_ghs: </b>' + feature.get('Match')
                 + '</br> <b>Match_wp: </b>' + feature.get('sampled__1')
-               
-            ); 
+
+            );
             $(elementPopup).popover({ 'placement': 'top', 'html': true }); //
-            $(elementPopup).popover('show'); 
+            $(elementPopup).popover('show');
         }
     });
-    
+
     map.on('pointermove', function (event) {
         if (event.dragging) {
             $(elementPopup).popover('destroy');
@@ -200,5 +213,5 @@
         var hit = map.hasFeatureAtPixel(pixel);
         //map.getTarget().style.cursor = hit ? 'pointer' : '';
     });
-    
+
 </script>

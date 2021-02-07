@@ -2237,14 +2237,15 @@
 /* Image */
 
 	.image {
-		border-radius: 0;
+		border-radius: 50%;
 		border: 0;
 		display: inline-block;
 		position: relative;
+		border:  1px solid rgb(167, 232, 235);
 	}
 
 		.image img {
-			border-radius: 0;
+			border-radius: 50%;
 			display: block;
 		}
 
