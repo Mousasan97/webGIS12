@@ -2942,7 +2942,6 @@
 		background-attachment: fixed;
 		background-repeat: no-repeat;
 		text-align: center;
-		border-top: 0.5em solid #5385c1;
 	}
 
 		#banner h1 {
@@ -3109,7 +3108,7 @@ bottom: 34px;
   display: block;
   height: 60px;
   width: 60px;
-  background: #B33771;
+  background: #ffffff;
   color: #F8EFBA;
   border-radius: 50%;
   position: relative;
