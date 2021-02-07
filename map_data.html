@@ -1,27 +1,33 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
-    <title>Generic - Theory by TEMPLATED</title>
+    <title>Group 12</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<!-- test by Song -->
 <body class="subpage">
 
-    <!-- Header -->
-    <header id="header">
-        <div class="inner">
-            <a href="index.html" class="logo">GIS12</a>
-            <nav id="nav">
-                <a href="index.html">Home</a>
-                <a href="generic.html">Generic</a>
-                <a href="elements.html">Elements</a>
-                <a href="echartsData.html">echartsDataPage</a>
-                <a href="#" ">change the name</a>
-            </nav>
-        </div>
-    </header>
+   <!-- Header -->
+   <header id="header">
+    <div class="inner">
+        <a href="index.html" class="logo">GIS12</a>
+        <nav class="stroke" id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>                <a href="overview.html">OVERVIEW </a>                    </li>
+                <li>                <a href="methodology.html">Methodology</a>
+                </li>
+                <li>                <a href="map_tiles_cov.html">Tiles COV </a>
+                </li>
+                <li>                <a href="map_data.html" class="active">MAP DATA</a>
+                </li>
+                <li>                <a href="map_sampled_info.html">Sampled Info</a>
+                </li>
+            </ul>  
+        </nav>            
+    </div>
+</header>
 
     <div id="map" class="map"></div>
     <div id="popup">&nbsp;</div>
@@ -57,13 +63,32 @@
 <link href="ol-layerswitcher-master/ol-layerswitcher.css" rel="stylesheet" />
 
 <script type="text/javascript">
+    var style = new ol.style.Style({
+        fill: new ol.style.Fill({
+            color: 'rgba(255, 255, 255, 0.6)',
+        }),
+        stroke: new ol.style.Stroke({
+            color: '#319FD3',
+            width: 1,
+        }),
+        text: new ol.style.Text({
+            font: '12px Calibri,sans-serif',
+            fill: new ol.style.Fill({
+                color: '#000',
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#fff',
+                width: 3,
+            }),
+        }),
+    });
 
 
     var osm = new ol.layer.Tile({
-        title: 'OpenStreetMap', //定义图层显示名称
-        type: 'base', //定义图层类型：底图
-        visible: true, //加载后显示该图层
-        source: new ol.source.OSM()//图层来源：osm
+        title: 'OpenStreetMap', //Define the layer display name
+        type: 'base', //Define layer type: basemap
+        visible: true, //Show this layer after loading
+        source: new ol.source.OSM()//Layer source: osm
     });
 
     /***URL of request data**/
@@ -75,7 +100,7 @@
                 + 'version=2.0.0&request=GetFeature&typeName=LabMapsGroup12:step0_GIS_lab_areas&'
                 + 'outputFormat=text/javascript&srsname=EPSG:3857&'
                 + 'format_options=callback:loadFeatures';
-            $.ajax({ url: url, dataType: 'jsonp' }); //数据格式
+            $.ajax({ url: url, dataType: 'jsonp' }); //date type
         }
     });
     //set data type:json
@@ -84,9 +109,9 @@
     function loadFeatures(response) {
         vectorSource.addFeatures(geojsonFormat.readFeatures(response));
     }
-    //set layer:plosRoad2
+    //set layer:group 12 from openlayers
     var group12 = new ol.layer.Vector({
-        title: 'group 12', //定义图层显示名称
+        title: 'group 12',
         source: vectorSource,
         style: new ol.style.Style({
             fill: new ol.style.Fill({
@@ -109,15 +134,29 @@
         })
     });
 
+
+
+    var vectorLayer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            url: 'USA.json',
+            format: new ol.format.GeoJSON(),
+        }),
+        style: function (feature) {
+            style.getText().setText(feature.get('name'));
+            return style;
+        },
+    });
+
+
     /**
-     *地图容器map
+     *the map container
      **/
-    var map = new ol.Map({//新建一个openlayer类型的地图容器
-        target: 'map', //地图容器存放的目标是id为map的标签
-        layers: [ //地图含有的图层
-            new ol.layer.Group({//新建一个地图group，
-                title: 'Base Maps', //地图group显示名称
-                layers: [osm] //地图group中包含的图层
+    var map = new ol.Map({//Create a new openlayer type map container
+        target: 'map', //The target of the map container storage is the label with id map
+        layers: [ //Map contains layers
+            new ol.layer.Group({//Create a new map group,
+                title: 'Base Maps', //Map group display name
+                layers: [osm, vectorLayer] //The layers included in the map group
 
             }),
             new ol.layer.Group({
@@ -126,24 +165,24 @@
             })
         ],
         view: new ol.View({
-            center: [15, 0],//规定地图中心位置
-            zoom: 4//规定地图缩放级别
+            center: [15, 0],//Specifies the center position of the map
+            zoom: 4//Specifies the zoom level of the map
         })
     });
 
 
     /**
-    *弹出窗口设置。Overlay类，用于实现弹出效果
-    */
-    //取到id为popup的标签
+    *set the pop-up window. the Overlay class is used to implement pop-up effect
+    * */
+    //get the lable that id is popup
     var elementPopup = document.getElementById('popup');
 
-    //将获得的标签传入overlay对象
+    //put the lab we got into the overlay object
     var popup = new ol.Overlay({
         element: elementPopup
     });
 
-    //将popup窗口添加到地图容器map中
+    //add the popup window into the map container
     map.addOverlay(popup);
 
     var highlightStyle = new ol.style.Style({
@@ -175,14 +214,14 @@
     });
     var highlight;
 
-    //为Map绑定点击事件，这样，当我们点击地图上的相应位置时，才会触发弹出框
+    //Bind the click event to the Map, so that when we click the corresponding location on the map, the pop-up box will be triggered
     map.on('click', function (event) {
 
-        //获取鼠标点击处的feature
+        //Get the feature at the mouse click
         var feature = map.forEachFeatureAtPixel(event.pixel, function (feature, layer) {
             return feature;
         });
-        //判断上一步是否return了feature
+        //Determine whether the feature is returned in the previous step
         if (feature != null) {
             if (feature !== highlight) {
                 if (highlight) {
@@ -194,26 +233,26 @@
                 highlight = feature;
             };
 
-            //当前点击的位置
+            //Currently clicked position
             var pixel = event.pixel;
 
-            //点击位置处的坐标
+            //the coordinates of clicked position
             var coord = map.getCoordinateFromPixel(pixel);
-            //popup窗口在该位置显示
+            //The popup window is displayed at this position
             popup.setPosition(coord);
 
-            //设置弹出框内容
-            $(elementPopup).attr('title', 'Population'); //添加弹出窗口title
+            //set the content of pop-up window
+            $(elementPopup).attr('title', 'Population'); //add the title of the pop-up window
             $(elementPopup).attr('data-content',
                 '<b>TitleId: </b>' + feature.get('TitleId')
                 + '</br> <b>COV: </b>' + feature.get('Correlatio')
-            ); //添加弹出窗口内容：当前feature的属性
+            ); //Add pop-up window content: the attributes of the current feature
             $(elementPopup).popover({ 'placement': 'top', 'html': true }); //
-            $(elementPopup).popover('show'); //显示窗口            
+            $(elementPopup).popover('show'); //display window            
         }
     });
 
-    //鼠标移动后，popup窗口destroy
+    //After the mouse is moved, the popup window destroys
     map.on('pointermove', function (event) {
         if (event.dragging) {
             $(elementPopup).popover('destroy');
@@ -224,7 +263,7 @@
         //map.getTarget().style.cursor = hit ? 'pointer' : '';
     });
 
-/*结束*/
+/*finish*/
 
 
 
