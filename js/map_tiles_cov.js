@@ -20,7 +20,7 @@ option2 = {
         trigger: 'item'
     },
     bmap: {
-        center: [10, 0],
+        center: [3, -25],
         zoom: 1,
         roam: false,
         mapStyle: {
@@ -208,7 +208,7 @@ $.get('/USA.json', function (usaJson) {
                 name: 'Population of Group_12',
                 type: 'map',
                 center:[0,0],
-                zoom:.5,
+                zoom:0.7,
 
                 roam: false,
                 map: 'Group_12',
