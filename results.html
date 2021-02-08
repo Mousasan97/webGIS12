@@ -285,513 +285,607 @@
     </div>
 
     <!-- Main -->
-
-
     <div class="inner">
         <div style="margin-top: 60px;"></div>
         <header class="align-left">
             <h2 style="color: black">After performing the different steps as infromed in the slides, we got those
                 outputs for each process:</h2>
         </header>
-        <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'step1')" id="defaultOpen">STEP 1</button>
-            <button class="tablinks" onclick="openCity(event, 'step2')">STEP 2</button>
-            <button class="tablinks" onclick="openCity(event, 'step3')">STEP 3</button>
-            <button class="tablinks" onclick="openCity(event, 'step4')">STEP 4</button>
-            <button class="tablinks" onclick="openCity(event, 'step5')">STEP 5</button>
-        </div>
+        
+        <button class="accordion">the first accordion</button>
+        
+        <div class="panel" style="margin-top:50px;">
 
-        <div id="step1" class="tabcontent">
-            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-            <header class="align-left">
-                <h2>Step1: Preprocessing</h2>
-            </header>
-            <p>
-
-            </p>
-            <div class="slideshow-container" style="width: 90%;">
-
-
-                <div class="mySlides1 fade">
-                    <div class="numbertext"></div>
-                    <img src="images/results_step1234/step1_ghspop.jpg" class="centerr" width="1000px;">
-                    <div class="text"></div>
-                </div>
-
-                <div class="mySlides1 fade">
-
-                    <img src="images/results_step1234/step1_worldpop.jpg" class="centerr" width="1000px;">
-
-                </div>
-
-
-
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-            </div>
-            <br>
-
-            <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"><span
-                        style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
-                <span class="dot" onclick="currentSlide(2)"><span
-                        style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
-
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'step1')" id="defaultOpen">STEP 1</button>
+                <button class="tablinks" onclick="openCity(event, 'step2')">STEP 2</button>
+                <button class="tablinks" onclick="openCity(event, 'step3')">STEP 3</button>
+                <button class="tablinks" onclick="openCity(event, 'step4')">STEP 4</button>
+                <button class="tablinks" onclick="openCity(event, 'step5')">STEP 5</button>
             </div>
 
-            <script>
-                let slideIndex = 1;
-                showSlides(slideIndex);
-
-                function plusSlides(n) {
-                    showSlides(slideIndex += n);
-                }
-
-                function currentSlide(n) {
-                    showSlides(slideIndex = n);
-                }
-
-                function showSlides(n) {
-                    let i;
-                    let slides = document.getElementsByClassName("mySlides1");
-                    let dots = document.getElementsByClassName("dot");
-                    if (n > slides.length) { slideIndex = 1 }
-                    if (n < 1) { slideIndex = slides.length }
-                    for (i = 0; i < slides.length; i++) {
-                        slides[i].style.display = "none";
-                    }
-                    for (i = 0; i < dots.length; i++) {
-                        dots[i].className = dots[i].className.replace(" active", "");
-                    }
-                    slides[slideIndex - 1].style.display = "block";
-                    dots[slideIndex - 1].className += " active";
-                }
-            </script>
-
-
-        </div>
-
-        <div id="step2" class="tabcontent">
-            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-            <div class="inner">
+            <div id="step1" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
                 <header class="align-left">
-                    <h2>Step2: Intercomparison</h2>
+                    <h2>Step1: Preprocessing</h2>
                 </header>
                 <p>
-                    In this step, we calculate the difference map at first to apply the basic statistics. Then, we split
-                    the 31 tiles of our work area and clip the two maps to each of them to calculate the covariance
-                    matrix between the two maps.
+
                 </p>
-
-                <div>
-                    <div class="slideshow-container" style="width: 90%;">
-
-                        <div class="mySlides2 fade">
-
-                            <img src="images/results_step1234/step2_intercomp_diff_int.jpg" class="centerr"
-                                width="1000px;">
-
-                        </div>
+                <div class="slideshow-container" style="width: 90%;">
 
 
-                        <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides2(1)">&#10095;</a>
-
+                    <div class="mySlides1 fade">
+                        <div class="numbertext"></div>
+                        <img src="images/results_step1234/step1_ghspop.jpg" class="centerr" width="1000px;">
+                        <div class="text"></div>
                     </div>
-                    <br>
 
-                    <div style="text-align:center">
-                        <span class="dot" onclick="currentSlide2(1)"><span
-                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                    <div class="mySlides1 fade">
+
+                        <img src="images/results_step1234/step1_worldpop.jpg" class="centerr" width="1000px;">
 
                     </div>
 
-                    <script>
-                        let slideIndex2 = 1;
-                        showSlides2(slideIndex2);
 
-                        function plusSlides2(m) {
-                            showSlides2(slideIndex2 += m);
-                        }
 
-                        function currentSlide2(m) {
-                            showSlides2(slideIndex2 = m);
-                        }
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-                        function showSlides2(m) {
-                            let i;
-                            let slides2 = document.getElementsByClassName("mySlides2");
-                            let dots2 = document.getElementsByClassName("dot");
-                            if (m > slides2.length) { slideIndex2 = 1 }
-                            if (m < 1) { slideIndex2 = slides2.length }
-                            for (i = 0; i < slides2.length; i++) {
-                                slides2[i].style.display = "none";
-                            }
-                            for (i = 0; i < dots2.length; i++) {
-                                dots2[i].className = dots2[i].className.replace(" active", "");
-                            }
-                            slides2[slideIndex2 - 1].style.display = "block";
-                            dots2[slideIndex2 - 1].className += " active";
-                        }
-                    </script>
                 </div>
+                <br>
 
-            </div>
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"><span
+                            style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                    <span class="dot" onclick="currentSlide(2)"><span
+                            style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
 
-
-
-
-
-
-        </div>
-
-        <div id="step3" class="tabcontent">
-            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-            <div class="inner">
-                <header class="align-left">
-                    <h2>Step3: Preprocessing data for validation</h2>
-                </header>
-                <p>
-                    In this step we used the raster calculator do to define the areas where we have built areas in both
-                    maps so can use this map later in our validation. Later, we compute the difference between these two
-                    maps to obtain a three scenarios map, showing the area where we have buildings in GHS but not
-                    Worldpop, areas where we have buildings in Worldpop but not in GHS, and areas where both maps are
-                    populated or not populated.
-                </p>
-
-                <div>
-                    <div class="slideshow-container" style="width: 90%;">
-
-                        <div class="mySlides3 fade">
-                            <div class="numbertext"></div>
-                            <img src="images/results_step1234/step3_difference_3scenarios_in.jpg" class="centerr"
-                                width="1000px;">
-                            <div class="text"></div>
-                        </div>
-
-                        <div class="mySlides3 fade">
-
-                            <img src="images/results_step1234/step3_ghs.jpg" class="centerr" width="1000px;">
-
-                        </div>
-
-                        <div class="mySlides3 fade">
-                            <img src="images/results_step1234/step3_worldpop.jpg" class="centerr" width="1000px;">
-
-                        </div>
-
-                        <a class="prev" onclick="plusSlides3(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides3(1)">&#10095;</a>
-
-                    </div>
-                    <br>
-
-                    <div style="text-align:center">
-                        <span class="dot" onclick="currentSlide3(1)"><span
-                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
-                        <span class="dot" onclick="currentSlide3(2)"><span
-                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
-                        <span class="dot" onclick="currentSlide3(3)"><span
-                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">3</span></span>
-
-                    </div>
-
-                    <script>
-                        let slideIndex3 = 1;
-                        showSlides3(slideIndex3);
-
-                        function plusSlides3(m) {
-                            showSlides3(slideIndex3 += m);
-                        }
-
-                        function currentSlide3(m) {
-                            showSlides3(slideIndex3 = m);
-                        }
-
-                        function showSlides3(m) {
-                            let i;
-                            let slides3 = document.getElementsByClassName("mySlides3");
-                            let dots3 = document.getElementsByClassName("dot");
-                            if (m > slides3.length) { slideIndex3 = 1 }
-                            if (m < 1) { slideIndex3 = slides3.length }
-                            for (i = 0; i < slides3.length; i++) {
-                                slides3[i].style.display = "none";
-                            }
-                            for (i = 0; i < dots3.length; i++) {
-                                dots3[i].className = dots3[i].className.replace(" active", "");
-                            }
-                            slides3[slideIndex3 - 1].style.display = "block";
-                            dots3[slideIndex3 - 1].className += " active";
-                        }
-                    </script>
-                </div>
-
-
-            </div>
-
-
-
-
-
-
-        </div>
-
-        <div id="step4" class="tabcontent">
-            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-            <div class="inner">
-                <header class="align-left">
-                    <h2>Step4: Validation</h2>
-                </header>
-                <p>
-                    This step is the main step in our work, here compared the data in the given two maps with a
-                    reference data by using different base maps. Since it’s required to create a sample of 600 points,
-                    the work load was divided into 200 sample for each student. To perform the validation process we had
-                    to install AcATaMa plugin in QGIS which refers to Accuracy Assessment of Thematic Maps. We used also
-                    python script to calculate the accuracy for both maps.
-                </p>
-                <!-- song -->
-
-                <button class="accordion">Data Resources</button>
-                <div class="panel">
-                    <p>
-                        <div class="table-wrapper">
-                            <table class="table table-bordered">
-                                <thead class="alt">
-                                    <tr>
-                                        <th>Thematic_class_worldPop/Classified</th>
-                                        <th>1</th>
-                                        <th>2</th>
-                                        <th>UA</th>
-                                        <th>PA</th>
-                                        <th>OA</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>341</td>
-                                        <td>14</td>
-                                        <td>0.96</td>
-                                        <td>0.65</td>
-                                        <td>0.668333333</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>185</td>
-                                        <td>60</td>
-                                        <td>0.24</td>
-                                        <td>0.81</td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </p>
                 </div>
 
                 <script>
-                    var acc = document.getElementsByClassName("accordion");
-                    var i;
-        
-                    for (i = 0; i < acc.length; i++) {
-                        acc[i].addEventListener("click", function () {
-                            this.classList.toggle("active");
-                            var panel = this.nextElementSibling;
-                            if (panel.style.maxHeight) {
-                                panel.style.maxHeight = null;
-                            } else {
-                                panel.style.maxHeight = panel.scrollHeight + "px";
-                            }
-                        });
+                    let slideIndex = 1;
+                    showSlides(slideIndex);
+
+                    function plusSlides(n) {
+                        showSlides(slideIndex += n);
+                    }
+
+                    function currentSlide(n) {
+                        showSlides(slideIndex = n);
+                    }
+
+                    function showSlides(n) {
+                        let i;
+                        let slides = document.getElementsByClassName("mySlides1");
+                        let dots = document.getElementsByClassName("dot");
+                        if (n > slides.length) { slideIndex = 1 }
+                        if (n < 1) { slideIndex = slides.length }
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                        }
+                        for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                        dots[slideIndex - 1].className += " active";
                     }
                 </script>
-                <!-- song -->
-                <div>
-                    <div class="slideshow-container" style="width: 90%;">
-
-                        <div class="mySlides4 fade">
-                            <div class="numbertext"></div>
-                            <img src="images/results_step1234/step4_600_points.jpg" class="centerr" width="1000px;">
-                            <div class="text"></div>
-                        </div>
-
-
-
-                        <a class="prev" onclick="plusSlides4(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides4(1)">&#10095;</a>
-
-                    </div>
-                    <br>
-
-                    <div style="text-align:center">
-
-                        <span class="dot" onclick="currentSlide4(1)"><span
-                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
-
-                    </div>
-
-                    <script>
-                        let slideIndex4 = 1;
-                        showSlides4(slideIndex4);
-
-                        function plusSlides4(m) {
-                            showSlides4(slideIndex4 += m);
-                        }
-
-                        function currentSlide4(m) {
-                            showSlides4(slideIndex4 = m);
-                        }
-
-                        function showSlides4(m) {
-                            let i;
-                            let slides4 = document.getElementsByClassName("mySlides4");
-                            let dots4 = document.getElementsByClassName("dot");
-                            if (m > slides4.length) { slideIndex4 = 1 }
-                            if (m < 1) { slideIndex4 = slides4.length }
-                            for (i = 0; i < slides4.length; i++) {
-                                slides4[i].style.display = "none";
-                            }
-                            for (i = 0; i < dots4.length; i++) {
-                                dots4[i].className = dots4[i].className.replace(" active", "");
-                            }
-                            slides4[slideIndex4 - 1].style.display = "block";
-                            dots4[slideIndex4 - 1].className += " active";
-                        }
-                    </script>
-                </div>
 
 
             </div>
 
+            <div id="step2" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <div class="inner">
+                    <header class="align-left">
+                        <h2>Step2: Intercomparison</h2>
+                    </header>
+                    <p>
+                        In this step, we calculate the difference map at first to apply the basic statistics. Then, we
+                        split
+                        the 31 tiles of our work area and clip the two maps to each of them to calculate the covariance
+                        matrix between the two maps.
+                    </p>
+
+                    <div>
+                        <div class="slideshow-container" style="width: 90%;">
+
+                            <div class="mySlides2 fade">
+
+                                <img src="images/results_step1234/step2_intercomp_diff_int.jpg" class="centerr"
+                                    width="1000px;">
+
+                            </div>
 
 
-        </div>
-
-        <div id="step5" class="tabcontent">
-            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-            <div class="inner">
-                <header class="align-left">
-                    <h2>Step5: Develop a website and Web GIS</h2>
-                </header>
-                <p>
-                    -For the development of the website we take advantage of existing templates.
-                    <br />-We explore more about HTML, CSS, JavaScript, jQuery and useful resources in the W3School.
-                    <br />-OpenLayers provides a large list of examples of its library so we used some of them.
-                    <br />-GeoServer was adopted as our WebGIS
-                    <br />-Uploading our project on GITHUB was and added value so we were able to work in parallel which
-                    gave us more efficiency.
-                </p>
-
-                <div>
-                    <div class="slideshow-container" style="width: 90%;">
-                        <div class="mySlides5 fade">
-                            <div class="numbertext"></div>
-                            <img src="images/Screenshots/step5_coding.png" style="width:100%" width="1000px;">
-                            <div class="text"></div>
-                        </div>
-
-
-                        <div class="mySlides5 fade">
-
-                            <img src="images/Screenshots/step5_geoserver.jpg" style="width:100%" width="1000px;">
+                            <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides2(1)">&#10095;</a>
 
                         </div>
+                        <br>
 
-                        <div class="mySlides5 fade">
-
-                            <img src="images/Screenshots/step5_github.png" style="width:100%" width="1000px;">
+                        <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide2(1)"><span
+                                    style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
 
                         </div>
 
-                        <a class="prev" onclick="plusSlides5(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides5(1)">&#10095;</a>
+                        <script>
+                            let slideIndex2 = 1;
+                            showSlides2(slideIndex2);
 
-                    </div>
-                    <br>
-
-                    <div style="text-align:center">
-                        <span class="dot" onclick="currentSlide5(1)"><span
-                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
-                        <span class="dot" onclick="currentSlide5(2)"><span
-                                style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
-                    </div>
-
-                    <script>
-                        let slideIndex5 = 1;
-                        showSlides5(slideIndex5);
-
-                        function plusSlides5(m) {
-                            showSlides5(slideIndex5 += m);
-                        }
-
-                        function currentSlide5(m) {
-                            showSlides5(slideIndex5 = m);
-                        }
-
-                        function showSlides5(m) {
-                            let i;
-                            let slides5 = document.getElementsByClassName("mySlides5");
-                            let dots5 = document.getElementsByClassName("dot");
-                            if (m > slides5.length) { slideIndex5 = 1 }
-                            if (m < 1) { slideIndex5 = slides5.length }
-                            for (i = 0; i < slides5.length; i++) {
-                                slides5[i].style.display = "none";
+                            function plusSlides2(m) {
+                                showSlides2(slideIndex2 += m);
                             }
-                            for (i = 0; i < dots5.length; i++) {
-                                dots5[i].className = dots5[i].className.replace(" active", "");
+
+                            function currentSlide2(m) {
+                                showSlides2(slideIndex2 = m);
                             }
-                            slides5[slideIndex5 - 1].style.display = "block";
-                            dots5[slideIndex5 - 1].className += " active";
-                        }
-                    </script>
+
+                            function showSlides2(m) {
+                                let i;
+                                let slides2 = document.getElementsByClassName("mySlides2");
+                                let dots2 = document.getElementsByClassName("dot");
+                                if (m > slides2.length) { slideIndex2 = 1 }
+                                if (m < 1) { slideIndex2 = slides2.length }
+                                for (i = 0; i < slides2.length; i++) {
+                                    slides2[i].style.display = "none";
+                                }
+                                for (i = 0; i < dots2.length; i++) {
+                                    dots2[i].className = dots2[i].className.replace(" active", "");
+                                }
+                                slides2[slideIndex2 - 1].style.display = "block";
+                                dots2[slideIndex2 - 1].className += " active";
+                            }
+                        </script>
+                    </div>
+
                 </div>
+
+
+
+
 
 
             </div>
 
+            <div id="step3" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <div class="inner">
+                    <header class="align-left">
+                        <h2>Step3: Preprocessing data for validation</h2>
+                    </header>
+                    <p>
+                        In this step we used the raster calculator do to define the areas where we have built areas in
+                        both
+                        maps so can use this map later in our validation. Later, we compute the difference between these
+                        two
+                        maps to obtain a three scenarios map, showing the area where we have buildings in GHS but not
+                        Worldpop, areas where we have buildings in Worldpop but not in GHS, and areas where both maps
+                        are
+                        populated or not populated.
+                    </p>
+
+                    <div>
+                        <div class="slideshow-container" style="width: 90%;">
+
+                            <div class="mySlides3 fade">
+                                <div class="numbertext"></div>
+                                <img src="images/results_step1234/step3_difference_3scenarios_in.jpg" class="centerr"
+                                    width="1000px;">
+                                <div class="text"></div>
+                            </div>
+
+                            <div class="mySlides3 fade">
+
+                                <img src="images/results_step1234/step3_ghs.jpg" class="centerr" width="1000px;">
+
+                            </div>
+
+                            <div class="mySlides3 fade">
+                                <img src="images/results_step1234/step3_worldpop.jpg" class="centerr" width="1000px;">
+
+                            </div>
+
+                            <a class="prev" onclick="plusSlides3(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides3(1)">&#10095;</a>
+
+                        </div>
+                        <br>
+
+                        <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide3(1)"><span
+                                    style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                            <span class="dot" onclick="currentSlide3(2)"><span
+                                    style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
+                            <span class="dot" onclick="currentSlide3(3)"><span
+                                    style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">3</span></span>
+
+                        </div>
+
+                        <script>
+                            let slideIndex3 = 1;
+                            showSlides3(slideIndex3);
+
+                            function plusSlides3(m) {
+                                showSlides3(slideIndex3 += m);
+                            }
+
+                            function currentSlide3(m) {
+                                showSlides3(slideIndex3 = m);
+                            }
+
+                            function showSlides3(m) {
+                                let i;
+                                let slides3 = document.getElementsByClassName("mySlides3");
+                                let dots3 = document.getElementsByClassName("dot");
+                                if (m > slides3.length) { slideIndex3 = 1 }
+                                if (m < 1) { slideIndex3 = slides3.length }
+                                for (i = 0; i < slides3.length; i++) {
+                                    slides3[i].style.display = "none";
+                                }
+                                for (i = 0; i < dots3.length; i++) {
+                                    dots3[i].className = dots3[i].className.replace(" active", "");
+                                }
+                                slides3[slideIndex3 - 1].style.display = "block";
+                                dots3[slideIndex3 - 1].className += " active";
+                            }
+                        </script>
+                    </div>
+
+
+                </div>
 
 
 
 
 
+
+            </div>
+
+            <div id="step4" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <div class="inner">
+                    <header class="align-left">
+                        <h2>Step4: Validation</h2>
+                    </header>
+                    <p>
+                        This step is the main step in our work, here compared the data in the given two maps with a
+                        reference data by using different base maps. Since it’s required to create a sample of 600
+                        points,
+                        the work load was divided into 200 sample for each student. To perform the validation process we
+                        had
+                        to install AcATaMa plugin in QGIS which refers to Accuracy Assessment of Thematic Maps. We used
+                        also
+                        python script to calculate the accuracy for both maps.
+                    </p>
+                    <!-- song -->
+
+
+                    <!-- <button class="accordion">Thematic_class_GHS/Classified</button>
+                <div class="panel">
+                    <p>
+                        <table class="table table-bordered">
+                            <thead class="alt">
+                                <tr>
+                                    <th>Thematic_class_GHS/Classified</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>UA</th>
+                                    <th>PA</th>
+                                    <th>OA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1  </td>
+                                    <td>314</td>
+                                    <td>45</td>
+                                    <td>0.87</td>
+                                    <td>0.6</td>
+                                    <td>0.57</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>213</td>
+                                    <td>28</td>
+                                    <td>0.12</td>
+                                    <td>0.38</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+                </div> -->
+                    
+                    <!-- song -->
+                    <div>
+                        <div class="slideshow-container" style="width: 90%;">
+
+                            <div class="mySlides4 fade">
+                                <div class="numbertext"></div>
+                                <img src="images/results_step1234/step4_600_points.jpg" class="centerr" width="1000px;">
+                                <div class="text"></div>
+                            </div>
+
+
+
+                            <a class="prev" onclick="plusSlides4(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides4(1)">&#10095;</a>
+
+                        </div>
+                        <br>
+
+                        <div style="text-align:center">
+
+                            <span class="dot" onclick="currentSlide4(1)"><span
+                                    style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+
+                        </div>
+
+                        <script>
+                            let slideIndex4 = 1;
+                            showSlides4(slideIndex4);
+
+                            function plusSlides4(m) {
+                                showSlides4(slideIndex4 += m);
+                            }
+
+                            function currentSlide4(m) {
+                                showSlides4(slideIndex4 = m);
+                            }
+
+                            function showSlides4(m) {
+                                let i;
+                                let slides4 = document.getElementsByClassName("mySlides4");
+                                let dots4 = document.getElementsByClassName("dot");
+                                if (m > slides4.length) { slideIndex4 = 1 }
+                                if (m < 1) { slideIndex4 = slides4.length }
+                                for (i = 0; i < slides4.length; i++) {
+                                    slides4[i].style.display = "none";
+                                }
+                                for (i = 0; i < dots4.length; i++) {
+                                    dots4[i].className = dots4[i].className.replace(" active", "");
+                                }
+                                slides4[slideIndex4 - 1].style.display = "block";
+                                dots4[slideIndex4 - 1].className += " active";
+                            }
+                        </script>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+            <div id="step5" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <div class="inner">
+                    <header class="align-left">
+                        <h2>Step5: Develop a website and Web GIS</h2>
+                    </header>
+                    <p>
+                        -For the development of the website we take advantage of existing templates.
+                        <br />-We explore more about HTML, CSS, JavaScript, jQuery and useful resources in the W3School.
+                        <br />-OpenLayers provides a large list of examples of its library so we used some of them.
+                        <br />-GeoServer was adopted as our WebGIS
+                        <br />-Uploading our project on GITHUB was and added value so we were able to work in parallel
+                        which
+                        gave us more efficiency.
+                    </p>
+
+                    <div>
+                        <div class="slideshow-container" style="width: 90%;">
+                            <div class="mySlides5 fade">
+                                <div class="numbertext"></div>
+                                <img src="images/Screenshots/step5_coding.png" style="width:100%" width="1000px;">
+                                <div class="text"></div>
+                            </div>
+
+
+                            <div class="mySlides5 fade">
+
+                                <img src="images/Screenshots/step5_geoserver.jpg" style="width:100%" width="1000px;">
+
+                            </div>
+
+                            <div class="mySlides5 fade">
+
+                                <img src="images/Screenshots/step5_github.png" style="width:100%" width="1000px;">
+
+                            </div>
+
+                            <a class="prev" onclick="plusSlides5(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides5(1)">&#10095;</a>
+
+                        </div>
+                        <br>
+
+                        <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide5(1)"><span
+                                    style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">1</span></span>
+                            <span class="dot" onclick="currentSlide5(2)"><span
+                                    style="color: rgb(255, 255, 255); font-size: 10px; font-weight: 700;">2</span></span>
+                        </div>
+
+                        <script>
+                            let slideIndex5 = 1;
+                            showSlides5(slideIndex5);
+
+                            function plusSlides5(m) {
+                                showSlides5(slideIndex5 += m);
+                            }
+
+                            function currentSlide5(m) {
+                                showSlides5(slideIndex5 = m);
+                            }
+
+                            function showSlides5(m) {
+                                let i;
+                                let slides5 = document.getElementsByClassName("mySlides5");
+                                let dots5 = document.getElementsByClassName("dot");
+                                if (m > slides5.length) { slideIndex5 = 1 }
+                                if (m < 1) { slideIndex5 = slides5.length }
+                                for (i = 0; i < slides5.length; i++) {
+                                    slides5[i].style.display = "none";
+                                }
+                                for (i = 0; i < dots5.length; i++) {
+                                    dots5[i].className = dots5[i].className.replace(" active", "");
+                                }
+                                slides5[slideIndex5 - 1].style.display = "block";
+                                dots5[slideIndex5 - 1].className += " active";
+                            }
+                        </script>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <p>
+            <div class="table-wrapper">
+                <table class="table table-bordered">
+                    <thead class="alt">
+                        <tr>
+                            <th>Thematic_class_worldPop/Classified</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>UA</th>
+                            <th>PA</th>
+                            <th>OA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>341</td>
+                            <td>14</td>
+                            <td>0.96</td>
+                            <td>0.65</td>
+                            <td>0.668333333</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>185</td>
+                            <td>60</td>
+                            <td>0.24</td>
+                            <td>0.81</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </p>
         </div>
 
-        <script>
-            function openCity(evt, cityName) {
-                let i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                    tabcontent[i].style.display = "none";
+
+        
+        <button class="accordion">the second accordion</button>
+        
+        <div class="panel" style="margin-top:50px;">
+
+
+
+            <p>
+            <div class="table-wrapper">
+                <table class="table table-bordered">
+                    <thead class="alt">
+                        <tr>
+                            <th>Thematic_class_worldPop/Classified</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>UA</th>
+                            <th>PA</th>
+                            <th>OA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>341</td>
+                            <td>14</td>
+                            <td>0.96</td>
+                            <td>0.65</td>
+                            <td>0.668333333</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>185</td>
+                            <td>60</td>
+                            <td>0.24</td>
+                            <td>0.81</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </p>
+        </div>
+
+
+        
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
                 }
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                    tablinks[i].className = tablinks[i].className.replace(" active", "");
-                }
-                document.getElementById(cityName).style.display = "block";
-                evt.currentTarget.className += " active";
+            });
+        }
+    </script>
+
+    <script>
+        function openCity(evt, cityName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
             }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
 
-            // Get the element with id="defaultOpen" and click on it
-            document.getElementById("defaultOpen").click();
-        </script>
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 
 
-        <!-- Footer -->
-        <footer id="footer">
-            <div class="inner">
-                <div class="flex">
-                    <div style="font-size: large;" class="copyright">
-                        &copy; GROUP 12
-                    </div>
-                    <ul class="icons">
-                        <li><a href="#" style="font-size: large;" class="icon fa-github"><span
-                                    class="label">GITHUB</span></a></li>
-
-                    </ul>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <div class="flex">
+                <div style="font-size: large;" class="copyright">
+                    &copy; GROUP 12
                 </div>
+                <ul class="icons">
+                    <li><a href="#" style="font-size: large;" class="icon fa-github"><span
+                                class="label">GITHUB</span></a></li>
+
+                </ul>
             </div>
-        </footer>
+        </div>
+    </footer>
 
 </body>
 
