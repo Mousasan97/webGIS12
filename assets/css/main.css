@@ -3262,3 +3262,10 @@ nav {
   nav ul li a:hover {
 	color: rgb(201, 205, 207) !important;
   }
+
+  .centerr {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+  }
