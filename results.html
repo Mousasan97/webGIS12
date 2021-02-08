@@ -204,8 +204,9 @@
 
         /* 
     </style>
-
     <style type="text/css">
+        /* stylr for the accordion lable */
+
         */ .lable_position {
             position: absolute;
             left: 200px;
@@ -283,10 +284,10 @@
         <img src="images/bg8.jpg" alt="" style="height: 100%; width: 100%; object-fit: cover">
         <h1 style="position: absolute; top: 110px; left: 10%; font-size: 4em; color: white;">Results PAGE</h1>
     </div>
-
     <!-- Main -->
+    <!----------------------------------------------the first accordion-----------------------------start----------------------------->
     <div class="inner">
-        <div style="margin-top: 60px;"></div>
+        <div style="margin-top: 30px;"></div>
         <header class="align-left">
             <h2 style="color: black">After performing the different steps as infromed in the slides, we got those
                 outputs for each process:</h2>
@@ -294,14 +295,14 @@
 
         <button class="accordion">Output Layers</button>
 
-        <div class="panel" style="margin-top:50px;">
+        <div class="panel" style="margin-top:20px;">
 
             <div class="tab">
                 <button class="tablinks" onclick="openCity(event, 'step1')" id="defaultOpen">STEP 1</button>
                 <button class="tablinks" onclick="openCity(event, 'step2')">STEP 2</button>
                 <button class="tablinks" onclick="openCity(event, 'step3')">STEP 3</button>
                 <button class="tablinks" onclick="openCity(event, 'step4')">STEP 4</button>
-            
+
             </div>
 
             <div id="step1" class="tabcontent">
@@ -322,11 +323,11 @@
                     </div>
 
                     <div class="mySlides1 fade">
-                       
-                        
 
-                        <img src="images/results_step1234/step1_worldpop.jpg" class="centerr" >
-                        
+
+
+                        <img src="images/results_step1234/step1_worldpop.jpg" class="centerr">
+
                     </div>
 
 
@@ -373,8 +374,6 @@
                         dots[slideIndex - 1].className += " active";
                     }
                 </script>
-
-
             </div>
 
             <div id="step2" class="tabcontent">
@@ -383,7 +382,7 @@
                     <header class="align-left">
                         <h2>Step2: Intercomparison</h2>
                     </header>
-                  
+
                     <div>
                         <div class="slideshow-container" style="width: 90%;">
 
@@ -452,7 +451,7 @@
                     <header class="align-left">
                         <h2>Step3: Preprocessing data for validation</h2>
                     </header>
-                  
+
 
                     <div>
                         <div class="slideshow-container" style="width: 90%;">
@@ -537,7 +536,7 @@
                     <header class="align-left">
                         <h2>Step4: Validation</h2>
                     </header>
-                  
+
                     <!-- song -->
 
 
@@ -602,30 +601,17 @@
 
 
             </div>
-
-           
-
-
-                </div>
-
-
-
-
-
-
-            </div>
-
+            <br>
         </div>
 
+    </div>
+    <!----------------------------------------------the first accordion-----------------------------finish----------------------------->
 
-<br  />
+    <!----------------------------------------------the second accordion-------------------------------start--------------------------->
+    <div class="inner">
         <button class="accordion">Accuracy Tables</button>
-
-        <div class="panel" style="margin-top:50px;">
-
+        <div class="panel" style="margin-top:20px;">
             <p>
-
-
             <table class="table table-bordered">
                 <thead class="alt">
                     <tr>
@@ -656,10 +642,7 @@
                     </tr>
                 </tbody>
             </table>
-
             </p>
-
-
             <p>
             <div class="table-wrapper">
                 <table class="table table-bordered">
@@ -695,19 +678,72 @@
             </div>
             </p>
         </div>
-
-
-
     </div>
-   
-    <button class="accordion">Output Layers</button>
+    <!----------------------------------------------the second accordion-----------------------------finish----------------------------->
 
-    <div class="panel" style="margin-top:50px;">
-   <p> Conclusion and Discussion:
-   
-   </p>  
+    <!----------------------------------------------the third accordion----------------------------------start------------------------>
+    <div class="inner">
+        <button class="accordion">Conclusion and Discussion</button>
+        <div class="panel" style="margin-top:20px;">
+            <p>Using the given python script for our project, we were able to calculate different indices which
+                evaluates the accuracy of the given two maps. Before giving explanation for the results we obtained in
+                the previous two tables, it’s better to introduce the indices mentioned above to better understand the
+                assessment process.
+                - UA (User’s Accuracy):
+                The User's Accuracy is the accuracy from the point of view of a map user, not the map maker. the User's
+                accuracy essentially tells us how often the class on the map will actually be present on the ground.
+                This is referred to as reliability.
+                <br>
+                - PA (Producer’s Accuracy):
+                Producer's Accuracy is the map accuracy from the point of view of the map maker (the producer). This is
+                how often are real features on the ground correctly shown on the classified map or the probability that
+                a certain land cover of an area on the ground is classified as such.
+                <br>
+                - OA (Overall Accuracy):
+                Overall Accuracy is essentially tells us out of all of the reference sites what proportion were mapped
+                correctly. The overall accuracy is usually expressed as a percent, with 100% accuracy being a perfect
+                classification where all reference site were classified correctly. Overall accuracy is the easiest to
+                calculate and understand but ultimately only provides the map user and producer with basic accuracy
+                information.
+                <br>
+                As we see, these indices defines the concept of accuracy from different aspects, each one of them
+                represents a unique point of view, but after all they are all following the same theme of assessment.
+                Getting into details, the GHS thematic map showed that 359 out of our 6oo hundred points represent
+                non-populated areas, and the other 241 represent populated area.
+                For the Worldpop data, the thematic map recorded 355 non-populated areas, and 245 populated ones.
+                But what we really have in reality based on our reference data (satellite images), the satellite
+                reference maps recorded 527 non-populated areas, and 73 populated area.
+                According to this significant difference, the GHS data has an overall accuracy of 0.57, where the
+                worldpop data has overall accuracy of 0.67.
+                Despite the fact that these accuracies are not reasonably representative of what we have in reality, the
+                worldpop data has more accuracy than the data comes from the GHS, which gives the advantage for worldpop
+                data in this intercomparison.
+                After obtaining the results, several questions came into our mind, the main one was where such errors
+                and uncertainties would come from?
+                We tried to think about some acceptable answers taking into consideration our area of interest, the two
+                data sources, and even our effort, and this is what we got.
+                <br>- Taking into considerations that the majority of our area of interest covers Africa, we were not
+                that surprised. Getting these results would be much more controversial if we are dealing with continents
+                like Europe, but since we know how things are going in Africa –socially, politically and economically-,
+                the result were kind of acceptable.
+                <br>- The differences between the two data sets given from the two maps could be easily explained by the
+                methodologies adopted by the two different bodies, but when comparing them what we have in the field we
+                believe that a little improvement in their adopted work methodologies can give more accurate results,
+                however, since we have no information about the standards the follow to collect their data, we believe
+                that this is not something we can discuss in details.
+                <br>- Despite the fact that the Base maps used in this project are reliable and trust-worthy since we
+                are talking about Google and Bing, we are not sure about any uncertainties which can be caused by those
+                maps in our situation, are we sure that the base maps and the thematic ones belong to the same time
+                period?, what if the satellite images are not clear enough to visualize the population presence
+                somewhere?
+                <br>- As a group of this project, we tried our best to keep our focusing at its highest level, but we
+                can’t deny that some personal errors can still happen.
+            </p>
+        </div>
     </div>
-   <script>
+    <!----------------------------------------------the third accordion------------------------------finish---------------------------->
+
+    <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
 
@@ -743,7 +779,6 @@
         document.getElementById("defaultOpen").click();
     </script>
 
-
     <!-- Footer -->
     <footer id="footer">
         <div class="inner">
@@ -759,11 +794,11 @@
             </div>
         </div>
     </footer>
-
 </body>
 
 </html>
 <!-- Scripts -->
+
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
